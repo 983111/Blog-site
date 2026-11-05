@@ -14,7 +14,7 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.5}
 h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif;font-weight:600;margin:0}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1180px;margin:0 auto;padding:16px}
+.wrap{max-width:none;margin:0;padding:16px clamp(14px,3vw,48px)}
 nav{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:22px;padding:12px 22px;background:var(--card)}
 .logo{display:flex;align-items:center;gap:12px;font-family:'Playfair Display',Georgia,serif;font-size:20px}
 .logo b{font-size:26px;letter-spacing:-3px;padding-right:14px;border-right:1px solid var(--line)}
@@ -32,7 +32,7 @@ nav{display:flex;align-items:center;justify-content:space-between;gap:12px;borde
 .btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .hero .art{background:var(--soft);border-radius:60px 0 0 60px;display:flex;align-items:center;justify-content:center;padding:14px}
 .art svg{width:100%;max-height:270px}
-.main{display:grid;grid-template-columns:1fr 330px;gap:28px;margin-top:40px}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;margin-top:40px}
 .sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:10px;flex-wrap:wrap}
 .sh h2{font-size:30px;border-left:3px solid var(--ink);padding-left:14px}
 .sh .r{display:flex;gap:10px;align-items:center;color:var(--mute);font-size:14px}
@@ -53,19 +53,39 @@ nav{display:flex;align-items:center;justify-content:space-between;gap:12px;borde
 .side p{color:var(--mute);font-size:15px;margin:0 0 12px}
 .cat{display:flex;justify-content:space-between;padding:6px 0;font-size:15px}
 .cat span{background:var(--soft);color:var(--mute);border-radius:99px;min-width:28px;text-align:center;font-size:13px;padding:1px 8px}
-.post{max-width:760px;margin:36px auto;border:1px solid var(--line);border-radius:22px;background:var(--card);padding:36px}
-.post h1{font-size:clamp(28px,4vw,40px);line-height:1.2;margin:14px 0 22px}
-.post .body p{font-size:18px;margin:0 0 18px;white-space:pre-wrap}
+.pw{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;margin:28px 0;align-items:start}
+.pw aside{position:sticky;top:16px}
+.post{border:1px solid var(--line);border-radius:24px;background:var(--card);padding:clamp(22px,4.5vw,64px)}
+.post h1{font-size:clamp(30px,4.2vw,52px);line-height:1.15;margin:16px 0 8px;max-width:1000px}
+.post .rule{height:3px;width:64px;background:var(--g);border-radius:3px;margin:22px 0 34px}
+.prose{max-width:900px}
+.prose p{font-size:19px;line-height:1.85;margin:0 0 22px}
+.prose p.lead{font-size:22px;line-height:1.7;color:var(--mute)}
+.prose h2{font-size:clamp(25px,2.8vw,34px);line-height:1.25;margin:52px 0 18px;padding-top:30px;border-top:1px solid var(--line)}
+.prose h3{font-size:23px;margin:34px 0 12px}
+.prose ul,.prose ol{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:10px;counter-reset:n}
+.prose li{background:var(--soft);border-radius:14px;padding:15px 20px;border-left:4px solid var(--g);font-size:18px;line-height:1.65;counter-increment:n}
+.prose li strong{font-family:'Playfair Display',Georgia,serif;font-size:1.05em}
+.prose ol li::before{content:counter(n);display:inline-block;min-width:26px;font-weight:600;color:var(--g)}
+.prose ul.chk li{position:relative;padding-left:52px;border-left-color:var(--ink)}
+.prose ul.chk li::before{content:"✓";position:absolute;left:18px;top:14px;width:22px;height:22px;border-radius:50%;background:var(--g);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center}
+.prose blockquote{margin:30px 0;padding:20px 26px;border-left:4px solid var(--ink);font-family:'Playfair Display',Georgia,serif;font-size:23px;line-height:1.5;background:var(--soft);border-radius:0 16px 16px 0}
+.prose code{background:var(--soft);padding:2px 7px;border-radius:6px;font-size:.88em}
+.prose a{text-decoration:underline}
+.prose hr{border:0;border-top:1px solid var(--line);margin:38px 0}
+.toc a,.more a{display:block;padding:7px 0;color:var(--mute);font-size:15px;cursor:pointer;line-height:1.4}
+.toc a:hover,.more a:hover{color:var(--ink)}
 .soon{background:var(--soft);border-radius:14px;padding:18px;color:var(--mute)}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
 .modal.open{display:flex}
-.sheet{background:var(--card);border-radius:22px;padding:26px;width:100%;max-width:620px;max-height:92vh;overflow:auto;border:1px solid var(--line)}
+.sheet{background:var(--card);border-radius:22px;padding:26px;width:100%;max-width:780px;max-height:92vh;overflow:auto;border:1px solid var(--line)}
 .sheet h2{font-size:26px;margin-bottom:16px}
 label{display:block;font-size:13px;color:var(--mute);margin:12px 0 5px}
 input,textarea,select{width:100%;font:16px Inter,sans-serif;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
-textarea{min-height:200px;resize:vertical}
+textarea{min-height:300px;resize:vertical}
 .row{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
 footer{text-align:center;color:var(--mute);font-size:14px;padding:36px 0 20px}
+@media(max-width:1000px){.pw{grid-template-columns:1fr}.pw aside{position:static}}
 @media(max-width:900px){.hero{grid-template-columns:1fr}.hero .art{border-radius:0}.main{grid-template-columns:1fr}.links{display:none}}
 </style>
 </head>
@@ -126,7 +146,7 @@ footer{text-align:center;color:var(--mute);font-size:14px;padding:36px 0 20px}
   <label for="f-title">Title</label><input id="f-title" placeholder="Your blog title">
   <label for="f-cat">Category</label>
   <input id="f-cat" list="catlist" placeholder="e.g. Machine Learning"><datalist id="catlist"></datalist>
-  <label for="f-body">Content</label><textarea id="f-body" placeholder="Write your blog here. Leave a blank line between paragraphs."></textarea>
+  <label for="f-body">Content</label><textarea id="f-body" placeholder="Write or paste your blog here."></textarea><p style="font-size:13px;color:var(--mute);margin:6px 0 0">Tips: leave a blank line between paragraphs. Short lines with no full stop become headings. Use ## Heading, - bullet, **bold**, &gt; quote if you want to control the layout.</p>
   <div class="row"><button class="btn alt" id="cancel">Cancel</button><button class="btn" id="save">Publish</button></div>
  </div>
 </div>
@@ -171,14 +191,49 @@ function render(){
  document.querySelectorAll('.own').forEach(function(e){e.style.display=isOwner?'':'none'});
  $('loginLink').style.display=isOwner?'none':'';
 }
+function inl(s){s=esc(s);return s.replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/(^|[^*])\*([^*\s][^*]*)\*/g,'$1<em>$2</em>').replace(/\[([^\]]+)\]\((https?:\/\/[^\s)"'<>]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>')}
+function isHead(s){return s.length<=95&&!/[.!?:;,”"')]$/.test(s)&&!/^([-*•>]|#)/.test(s)}
+function fmt(txt){
+ var out=[],toc=[],prevColon=false,lead=true;
+ txt=(txt||'').replace(/\r/g,'').replace(/^Press enter or click to view image in full size\s*$/gmi,'');
+ function head(t,lv){var id='h'+toc.length;if(lv===2)toc.push({id:id,t:t});out.push('<h'+lv+' id="'+id+'">'+inl(t)+'</h'+lv+'>');lead=false}
+ function list(items,cls,tag,bold){out.push('<'+tag+(cls?' class="'+cls+'"':'')+'>'+items.map(function(t){
+  var m=bold&&t.match(/^([A-Z][^.:?!]{2,40}\.)\s+(.*)$/);
+  return '<li>'+(m?'<strong>'+inl(m[1])+'</strong> '+inl(m[2]):inl(t))+'</li>'}).join('')+'</'+tag+'>');lead=false}
+ txt.split(/\n\s*\n/).forEach(function(b){
+  var L=b.split('\n').map(function(s){return s.trim()}).filter(Boolean);
+  if(!L.length)return;
+  var prev=prevColon;prevColon=false;
+  if(/^-{3,}$/.test(L[0])){out.push('<hr>');return}
+  var bul=/^[-*•]\s+/,num=/^\d+[.)]\s+/;
+  if(L.every(function(s){return bul.test(s)})){list(L.map(function(s){return s.replace(bul,'')}),'','ul',true);return}
+  if(L.length>1&&L.every(function(s){return num.test(s)})){list(L.map(function(s){return s.replace(num,'')}),'','ol',true);return}
+  if(L.every(function(s){return /^>/.test(s)})){out.push('<blockquote>'+inl(L.map(function(s){return s.replace(/^>\s?/,'')}).join(' '))+'</blockquote>');return}
+  var m=L[0].match(/^(#{1,3})\s+(.*)$/);
+  if(m){head(m[2],m[1].length===1?2:m[1].length);L.shift()}
+  else if(isHead(L[0])&&!(L.length>1&&L.every(function(s){return isHead(s)}))){head(L[0],2);L.shift()}
+  if(!L.length)return;
+  if(prev||L.length>=3&&L.every(function(s){return /[?]$/.test(s)})){
+   var q=L.every(function(s){return /[?]$/.test(s)});
+   list(L,q?'chk':'','ul',!q);return}
+  if(L.length>1&&/:$/.test(L[0])){out.push('<p>'+inl(L[0])+'</p>');list(L.slice(1),'','ul',true);return}
+  var para=L.join(' ');
+  out.push('<p'+(lead?' class="lead"':'')+'>'+inl(para)+'</p>');lead=false;
+  if(/:$/.test(para))prevColon=true;
+ });
+ return {html:out.join(''),toc:toc};
+}
 function route(){
  var h=location.hash.slice(1),v=$('view'),home=$('home'),blog=$('blog');
  if(h.indexOf('post-')===0&&loaded){
   var slug=h.slice(5),x=posts.filter(function(a){return a.slug===slug})[0];
   home.style.display='none';blog.style.display='none';v.style.display='block';
   if(!x){v.innerHTML='<article class="post"><a href="#blog" style="color:var(--mute)">← Back to all posts</a><h1>Blog not found</h1></article>';return}
-  var body=x.body?x.body.split(/\n\s*\n/).map(function(t){return '<p>'+esc(t)+'</p>'}).join(''):'<div class="soon">This blog will be added here soon.</div>';
-  v.innerHTML='<article class="post"><a href="#blog" style="color:var(--mute)">← Back to all posts</a><div style="margin-top:18px"><span class="pill">'+esc(x.category)+'</span></div><h1>'+esc(x.title)+'</h1><div class="body">'+body+'</div>'+(isOwner?'<div class="row" style="justify-content:flex-start"><button class="btn alt" id="edit">Edit</button><button class="btn alt" id="del">Delete</button></div>':'')+'</article>';
+  var f=fmt(x.body);
+  var prose=x.body?f.html:'<div class="soon">This blog will be added here soon.</div>';
+  var others=posts.filter(function(a){return a.id!==x.id}).slice(0,6).map(function(a){return '<a href="#post-'+esc(a.slug)+'">'+esc(a.title)+'</a>'}).join('');
+  v.innerHTML='<div class="pw"><article class="post"><a href="#blog" style="color:var(--mute)">← Back to all posts</a><div style="margin-top:20px"><span class="pill">'+esc(x.category)+'</span></div><h1>'+esc(x.title)+'</h1><div class="rule"></div><div class="prose">'+prose+'</div>'+(isOwner?'<div class="row" style="justify-content:flex-start;margin-top:36px"><button class="btn alt" id="edit">Edit</button><button class="btn alt" id="del">Delete</button></div>':'')+'</article><aside class="side">'+(f.toc.length?'<div class="box"><h3>In this article</h3><div class="toc">'+f.toc.map(function(t){return '<a data-t="'+t.id+'">'+esc(t.t)+'</a>'}).join('')+'</div></div>':'')+(others?'<div class="box"><h3>More posts</h3><div class="more">'+others+'</div></div>':'')+'<div class="box"><h3>About Me</h3><div class="me"><div class="av">VA</div><div><div class="serif" style="font-size:19px">Vishwajeet Adkine</div><small>Researcher • Builder • Dreamer</small></div></div><p>I’m passionate about Artificial Intelligence, research and using technology to create real-world impact.</p></div></aside></div>';
+  v.querySelectorAll('.toc a').forEach(function(a){a.onclick=function(){var t=document.getElementById(a.getAttribute('data-t'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}});
   var e=$('edit');if(e)e.onclick=function(){openEditor(x)};
   var d=$('del');if(d)d.onclick=async function(){if(!confirm('Delete this blog?'))return;var r=await sb.from('posts').delete().eq('id',x.id);if(r.error){alert('Could not delete: '+r.error.message);return}await load();location.hash='blog'};
   window.scrollTo(0,0);return;
