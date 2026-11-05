@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vishwajeet Adkine — Blog</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fdfaf0;--card:#fffdf6;--soft:#f6efdd;--ink:#16130e;--mute:#6b665a;--line:#eadfc6;--btn:#111;--btnt:#fff;--g:#6a9a5b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17150f;--card:#1f1c14;--soft:#27231a;--ink:#f3eddc;--mute:#a59f8e;--line:#3a3526;--btn:#f3eddc;--btnt:#17150f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17150f;--card:#1f1c14;--soft:#27231a;--ink:#f3eddc;--mute:#a59f8e;--line:#3a3526;--btn:#f3eddc;--btnt:#17150f;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.5}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif;font-weight:600;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:16px}
+nav{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:22px;padding:12px 22px;background:var(--card)}
+.logo{display:flex;align-items:center;gap:12px;font-family:'Playfair Display',Georgia,serif;font-size:20px}
+.logo b{font-size:26px;letter-spacing:-3px;padding-right:14px;border-right:1px solid var(--line)}
+.links{display:flex;gap:30px;font-size:15px}
+.links a{padding:6px 0;border-bottom:2px solid transparent}
+.links a.on{border-color:var(--ink)}
+.tools{display:flex;gap:10px}
+.ib{background:none;border:0;color:var(--ink);font-size:18px;cursor:pointer;padding:6px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;margin-top:18px;border:1px solid var(--line);border-radius:26px;background:var(--card);overflow:hidden}
+.hero .t{padding:36px 36px 34px}
+.pill{display:inline-block;font-size:13px;background:var(--soft);padding:5px 12px;border-radius:99px}
+.hero h1{font-size:clamp(34px,5vw,56px);margin:16px 0 14px;line-height:1.1}
+.hero p{color:var(--mute);font-size:18px;max-width:480px;margin:0 0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--btn);color:var(--btnt);border:0;border-radius:12px;padding:13px 20px;font:500 15px Inter,sans-serif;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.hero .art{background:var(--soft);border-radius:60px 0 0 60px;display:flex;align-items:center;justify-content:center;padding:14px}
+.art svg{width:100%;max-height:270px}
+.main{display:grid;grid-template-columns:1fr 330px;gap:28px;margin-top:40px}
+.sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:10px;flex-wrap:wrap}
+.sh h2{font-size:30px;border-left:3px solid var(--ink);padding-left:14px}
+.sh .r{display:flex;gap:10px;align-items:center;color:var(--mute);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.card{border:1px solid var(--line);border-radius:20px;background:var(--card);overflow:hidden;display:flex;flex-direction:column;transition:transform .15s}
+.card:hover{transform:translateY(-3px)}
+.card .im{height:190px;background:var(--soft);position:relative;display:flex;align-items:center;justify-content:center}
+.card .im svg{height:100%;width:100%}
+.card .tag{position:absolute;top:14px;left:14px;background:var(--card);font-size:13px;padding:5px 12px;border-radius:99px}
+.card .bd{padding:20px 20px 22px;display:flex;flex-direction:column;gap:14px;flex:1}
+.card h3{font-size:22px;line-height:1.25}
+.card .go{margin-top:auto;font-size:14px;color:var(--mute)}
+.side .box{border:1px solid var(--line);border-radius:20px;background:var(--card);padding:22px;margin-bottom:20px}
+.side h3{font-size:21px;border-left:3px solid var(--ink);padding-left:12px;margin-bottom:16px}
+.me{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.av{width:62px;height:62px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;flex:none}
+.me small{color:var(--mute);font-size:13px}
+.side p{color:var(--mute);font-size:15px;margin:0 0 12px}
+.cat{display:flex;justify-content:space-between;padding:6px 0;font-size:15px}
+.cat span{background:var(--soft);color:var(--mute);border-radius:99px;min-width:28px;text-align:center;font-size:13px;padding:1px 8px}
+.post{max-width:760px;margin:36px auto;border:1px solid var(--line);border-radius:22px;background:var(--card);padding:36px}
+.post h1{font-size:clamp(28px,4vw,40px);line-height:1.2;margin:14px 0 22px}
+.post .body p{font-size:18px;margin:0 0 18px;white-space:pre-wrap}
+.soon{background:var(--soft);border-radius:14px;padding:18px;color:var(--mute)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
+.modal.open{display:flex}
+.sheet{background:var(--card);border-radius:22px;padding:26px;width:100%;max-width:620px;max-height:92vh;overflow:auto;border:1px solid var(--line)}
+.sheet h2{font-size:26px;margin-bottom:16px}
+label{display:block;font-size:13px;color:var(--mute);margin:12px 0 5px}
+input,textarea,select{width:100%;font:16px Inter,sans-serif;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+textarea{min-height:200px;resize:vertical}
+.row{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
+footer{text-align:center;color:var(--mute);font-size:14px;padding:36px 0 20px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero .art{border-radius:0}.main{grid-template-columns:1fr}.links{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+ <a class="logo" href="#home"><b>VA</b><span>Vishwajeet Adkine</span></a>
+ <div class="links"><a class="on" href="#home">Home</a><a href="#blog">Blog</a><a href="https://prt-delta.vercel.app/" target="_blank" rel="noopener">Projects</a><a href="https://prt-delta.vercel.app/" target="_blank" rel="noopener">About</a><a href="mailto:vishwajeetadkine705@gmail.com">Contact</a></div>
+ <div class="tools"><button class="btn own" id="newTop" style="display:none">✎ Create Blog</button><button class="btn alt own" id="logout" style="display:none">Log out</button><button class="ib" id="theme" aria-label="Toggle theme">☾</button></div>
+</nav>
+
+<div id="home">
+<section class="hero">
+ <div class="t">
+  <span class="pill">● Welcome to my blog</span>
+  <h1>Ideas. Research. Innovation.</h1>
+  <p>A space where I document my thoughts on AI, research, technology, and the journey of building impactful solutions.</p>
+  <a class="btn" href="#blog">Explore Articles →</a>
+ </div>
+ <div class="art">
+  <svg viewBox="0 0 460 280" fill="none" stroke="#1d1a14" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+   <rect x="48" y="30" width="46" height="46" rx="8" fill="#3a4350"/><rect x="60" y="42" width="22" height="22" rx="4" fill="none" stroke="#fff"/>
+   <path d="M205 40c-18-6-30 8-24 20-10 8-4 24 10 22 6 12 24 10 28-2 14 0 20-16 10-24 6-12-6-24-24-16z" fill="#fffdf6"/>
+   <rect x="330" y="38" width="62" height="46" rx="8" fill="#fffdf6"/><path d="M352 52l-10 9 10 9M370 52l10 9-10 9"/>
+   <path d="M60 240c-6-30 14-48 36-54-4 26-14 44-36 54zM96 232c-4-34 18-60 52-62-2 30-18 52-52 62z" fill="#6a9a5b" stroke="#1d1a14"/>
+   <path d="M98 236v-60" /><path d="M72 240h52l-6 32H78z" fill="#fffdf6"/>
+   <path d="M150 262h24l-6-14h-18zM170 262h110" /><rect x="150" y="246" width="70" height="14" fill="#b9b5ab"/><rect x="156" y="232" width="60" height="14" fill="#555"/>
+   <path d="M240 258L222 150l130-6 40 112z" fill="#c9c9c9"/>
+   <path d="M20 270h420"/>
+  </svg>
+ </div>
+</section>
+</div>
+
+<div class="main" id="blog">
+ <section>
+  <div class="sh"><h2>Latest Posts</h2><div class="r"><a href="#blog">View all posts →</a><button class="btn alt own" id="newMid" style="display:none">+ Create Blog</button></div></div>
+  <div class="grid" id="grid"></div>
+ </section>
+ <aside class="side">
+  <div class="box">
+   <h3>About Me</h3>
+   <div class="me"><div class="av">VA</div><div><div class="serif" style="font-size:19px">Vishwajeet Adkine</div><small>Researcher • Builder • Dreamer</small></div></div>
+   <p>I’m passionate about Artificial Intelligence, research and using technology to create real-world impact.</p>
+   <a href="https://prt-delta.vercel.app/" target="_blank" rel="noopener" style="font-size:15px">Learn more →</a>
+  </div>
+  <div class="box"><h3>Categories</h3><div id="cats"></div></div>
+ </aside>
+</div>
+
+<div id="view" style="display:none"></div>
+<footer>© Vishwajeet Adkine · <a href="#" id="loginLink" style="text-decoration:underline">Owner login</a></footer>
+</div>
+
+<div class="modal" id="modal">
+ <div class="sheet">
+  <h2 id="ed-h">Create a new blog</h2>
+  <label for="f-title">Title</label><input id="f-title" placeholder="Your blog title">
+  <label for="f-cat">Category</label>
+  <input id="f-cat" list="catlist" placeholder="e.g. Machine Learning"><datalist id="catlist"></datalist>
+  <label for="f-body">Content</label><textarea id="f-body" placeholder="Write your blog here. Leave a blank line between paragraphs."></textarea>
+  <div class="row"><button class="btn alt" id="cancel">Cancel</button><button class="btn" id="save">Publish</button></div>
+ </div>
+</div>
+
+<div class="modal" id="lmodal"><div class="sheet" style="max-width:420px"><h2>Owner login</h2>
+ <label for="l-email">Email</label><input id="l-email" type="email" autocomplete="username">
+ <label for="l-pass">Password</label><input id="l-pass" type="password" autocomplete="current-password">
+ <p id="lerr" style="color:#b3402a;font-size:14px;min-height:20px;margin:10px 0 0"></p>
+ <div class="row" style="margin-top:6px"><button class="btn alt" id="lcancel">Cancel</button><button class="btn" id="login">Log in</button></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+(function(){
+var SB_URL='https://osuyauxwckklzawezmed.supabase.co';
+var SB_KEY='sb_publishable_Agi6vATEifraKAMuD25tag_eUFut8iD';
+var OWNER='vishwajeetadkine705@gmail.com';
+var sb=null;try{sb=window.supabase.createClient(SB_URL,SB_KEY)}catch(e){}
+var posts=[],isOwner=false,editId=null,loaded=false,failed=false;
+var $=function(i){return document.getElementById(i)};
+var arts={
+ 'Agriculture & AI':'<svg viewBox="0 0 300 190"><rect width="300" height="190" fill="#e9f0d8"/><circle cx="250" cy="35" r="16" fill="#f4d35e"/><path d="M0 100q70-40 150-10t150-10v110H0z" fill="#9cc16a"/><path d="M0 130q90-30 170 0t130-10v70H0z" fill="#7aa84e"/><rect x="120" y="108" width="40" height="22" rx="4" fill="#2b2b2b"/><circle cx="128" cy="134" r="10" fill="#c9a227"/><circle cx="160" cy="136" r="7" fill="#c9a227"/></svg>',
+ 'Engineering':'<svg viewBox="0 0 300 190"><rect width="300" height="190" fill="#f6efdd"/><rect x="100" y="55" width="100" height="80" rx="10" fill="#3a4350"/><rect x="125" y="80" width="50" height="30" rx="4" fill="none" stroke="#fff" stroke-width="3"/><g stroke="#3a4350" stroke-width="4"><path d="M115 40v15M150 40v15M185 40v15M115 135v15M150 135v15M185 135v15"/></g><path d="M60 40l4 8 8 4-8 4-4 8-4-8-8-4 8-4zM240 140l3 6 6 3-6 3-3 6-3-6-6-3 6-3z" fill="#d9bd6a"/></svg>',
+ 'def':'<svg viewBox="0 0 300 190"><rect width="300" height="190" fill="#f6efdd"/><rect x="80" y="45" width="140" height="100" rx="10" fill="#fffdf6" stroke="#3a4350" stroke-width="3"/><path d="M100 75h100M100 95h100M100 115h60" stroke="#3a4350" stroke-width="4" stroke-linecap="round"/></svg>'
+};
+function esc(s){var d=document.createElement('div');d.textContent=s==null?'':s;return d.innerHTML}
+
+async function load(){
+ if(!sb){failed=true;loaded=true;render();route();return}
+ var r=await sb.from('posts').select('id,slug,title,category,body').order('created_at',{ascending:false});
+ failed=!!r.error;posts=r.data||[];loaded=true;render();route();
+}
+function render(){
+ var g=$('grid');
+ if(!loaded){g.innerHTML='<p style="color:var(--mute)">Loading posts…</p>'}
+ else if(failed){g.innerHTML='<p style="color:var(--mute)">Could not load posts right now. Please refresh in a moment.</p>'}
+ else if(!posts.length){g.innerHTML='<p style="color:var(--mute)">No posts yet.</p>'}
+ else g.innerHTML=posts.map(function(x){
+  return '<a class="card" href="#post-'+esc(x.slug)+'"><div class="im">'+(arts[x.category]||arts.def)+'<span class="tag">'+esc(x.category)+'</span></div><div class="bd"><h3>'+esc(x.title)+'</h3><span class="go">Read blog →</span></div></a>';
+ }).join('');
+ var c={};posts.forEach(function(x){c[x.category]=(c[x.category]||0)+1});
+ $('cats').innerHTML=Object.keys(c).map(function(k){return '<div class="cat"><a href="#blog">'+esc(k)+'</a><span>'+c[k]+'</span></div>'}).join('');
+ $('catlist').innerHTML=Object.keys(c).map(function(k){return '<option value="'+esc(k)+'">'}).join('');
+ document.querySelectorAll('.own').forEach(function(e){e.style.display=isOwner?'':'none'});
+ $('loginLink').style.display=isOwner?'none':'';
+}
+function route(){
+ var h=location.hash.slice(1),v=$('view'),home=$('home'),blog=$('blog');
+ if(h.indexOf('post-')===0&&loaded){
+  var slug=h.slice(5),x=posts.filter(function(a){return a.slug===slug})[0];
+  home.style.display='none';blog.style.display='none';v.style.display='block';
+  if(!x){v.innerHTML='<article class="post"><a href="#blog" style="color:var(--mute)">← Back to all posts</a><h1>Blog not found</h1></article>';return}
+  var body=x.body?x.body.split(/\n\s*\n/).map(function(t){return '<p>'+esc(t)+'</p>'}).join(''):'<div class="soon">This blog will be added here soon.</div>';
+  v.innerHTML='<article class="post"><a href="#blog" style="color:var(--mute)">← Back to all posts</a><div style="margin-top:18px"><span class="pill">'+esc(x.category)+'</span></div><h1>'+esc(x.title)+'</h1><div class="body">'+body+'</div>'+(isOwner?'<div class="row" style="justify-content:flex-start"><button class="btn alt" id="edit">Edit</button><button class="btn alt" id="del">Delete</button></div>':'')+'</article>';
+  var e=$('edit');if(e)e.onclick=function(){openEditor(x)};
+  var d=$('del');if(d)d.onclick=async function(){if(!confirm('Delete this blog?'))return;var r=await sb.from('posts').delete().eq('id',x.id);if(r.error){alert('Could not delete: '+r.error.message);return}await load();location.hash='blog'};
+  window.scrollTo(0,0);return;
+ }
+ v.style.display='none';home.style.display='';blog.style.display='';
+ if(h==='blog'){setTimeout(function(){blog.scrollIntoView()},0)}
+}
+function openEditor(x){
+ editId=x?x.id:null;
+ $('ed-h').textContent=x?'Edit blog':'Create a new blog';
+ $('f-title').value=x?x.title:'';$('f-cat').value=x?x.category:'';$('f-body').value=x?x.body:'';
+ $('modal').classList.add('open');$('f-title').focus();
+}
+function closeAll(){$('modal').classList.remove('open');$('lmodal').classList.remove('open')}
+$('newTop').onclick=function(){openEditor(null)};$('newMid').onclick=function(){openEditor(null)};
+$('cancel').onclick=closeAll;$('lcancel').onclick=closeAll;
+$('modal').onclick=function(e){if(e.target===this)closeAll()};
+$('lmodal').onclick=function(e){if(e.target===this)closeAll()};
+$('save').onclick=async function(){
+ var t=$('f-title').value.trim();if(!t){$('f-title').focus();return}
+ var row={title:t,category:$('f-cat').value.trim()||'General',body:$('f-body').value.trim()};
+ $('save').disabled=true;var r,slug=null;
+ if(editId){r=await sb.from('posts').update(row).eq('id',editId).select('slug')}
+ else{slug=(t.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60)||'blog')+'-'+Date.now().toString(36);row.slug=slug;r=await sb.from('posts').insert(row).select('slug')}
+ $('save').disabled=false;
+ if(r.error||!r.data||!r.data.length){alert('Could not save. Make sure you are logged in as the owner.'+(r.error?'\n'+r.error.message:''));return}
+ closeAll();await load();location.hash='post-'+r.data[0].slug;
+};
+$('loginLink').onclick=function(e){e.preventDefault();$('lerr').textContent='';$('lmodal').classList.add('open');$('l-email').focus()};
+$('login').onclick=async function(){
+ $('lerr').textContent='';
+ var r=await sb.auth.signInWithPassword({email:$('l-email').value.trim(),password:$('l-pass').value});
+ if(r.error){$('lerr').textContent=r.error.message;return}
+ $('l-pass').value='';closeAll();
+};
+$('logout').onclick=async function(){await sb.auth.signOut()};
+function setSession(s){isOwner=!!(s&&s.user&&s.user.email===OWNER);render();route()}
+$('theme').onclick=function(){
+ var r=document.documentElement,dark=r.getAttribute('data-theme')==='dark'||(!r.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+ r.setAttribute('data-theme',dark?'light':'dark');
+};
+window.addEventListener('hashchange',route);
+render();
+if(sb){
+ sb.auth.onAuthStateChange(function(_e,s){setSession(s)});
+ sb.auth.getSession().then(function(r){setSession(r.data.session)});
+}
+load();
+})();
+</script>
+
+</body>
+</html>
