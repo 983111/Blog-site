@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Vishwajeet Adkine writes about artificial intelligence, machine learning, research, engineering, and technology.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://vishwajeet-blog-psi.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vishwajeet Adkine — AI, Research & Technology">
+<meta property="og:description" content="Ideas, research, and practical notes on artificial intelligence, machine learning, and technology.">
+<meta property="og:url" content="https://vishwajeet-blog-psi.vercel.app/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vishwajeet Adkine — Blog">
+<meta name="twitter:description" content="Writing on AI, research, machine learning, and technology.">
 <meta name="google-site-verification" content="4laV47mppL62lEqaw6JKJMwgfSvP4oeB09_l33M98UM" />
 <title>Vishwajeet Adkine — Blog</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -224,13 +234,24 @@ function fmt(txt){
  });
  return {html:out.join(''),toc:toc};
 }
+function setSeo(title,description,url,type){
+ document.title=title;
+ var d=document.querySelector('meta[name="description"]');if(d)d.setAttribute('content',description);
+ var c=document.querySelector('link[rel="canonical"]');if(c)c.setAttribute('href',url);
+ [['meta[property="og:title"]',title],['meta[property="og:description"]',description],['meta[property="og:url"]',url],['meta[property="og:type"]',type||'website']].forEach(function(p){var e=document.querySelector(p[0]);if(e)e.setAttribute('content',p[1])});
+ var old=document.getElementById('article-jsonld');if(old)old.remove();
+ if(type==='article'){var s=document.createElement('script');s.id='article-jsonld';s.type='application/ld+json';s.textContent=JSON.stringify({'@context':'https://schema.org','@type':'BlogPosting',headline:title,description:description,url:url,author:{'@type':'Person',name:'Vishwajeet Adkine'}});document.head.appendChild(s)}
+}
 function route(){
- var h=location.hash.slice(1),v=$('view'),home=$('home'),blog=$('blog');
+ var path=location.pathname, h=location.hash.slice(1),v=$('view'),home=$('home'),blog=$('blog');
+ if(path.indexOf('/posts/')===0){h='post-'+decodeURIComponent(path.slice(7).replace(/\/$/,''));}
  if(h.indexOf('post-')===0&&loaded){
   var slug=h.slice(5),x=posts.filter(function(a){return a.slug===slug})[0];
   home.style.display='none';blog.style.display='none';v.style.display='block';
-  if(!x){v.innerHTML='<article class="post"><a href="#blog" style="color:var(--mute)">← Back to all posts</a><h1>Blog not found</h1></article>';return}
+  if(!x){setSeo('Article not found — Vishwajeet Adkine','The requested article could not be found.','https://vishwajeet-blog-psi.vercel.app/','website');v.innerHTML='<article class="post"><a href="#blog" style="color:var(--mute)">← Back to all posts</a><h1>Blog not found</h1></article>';return}
   var f=fmt(x.body);
+  var desc=(x.body||'').replace(/[#*`>\n]/g,' ').replace(/\s+/g,' ').trim().slice(0,155)||('An article by Vishwajeet Adkine about '+x.category+'.');
+  setSeo(x.title+' — Vishwajeet Adkine',desc,'https://vishwajeet-blog-psi.vercel.app/posts/'+encodeURIComponent(x.slug),'article');
   var prose=x.body?f.html:'<div class="soon">This blog will be added here soon.</div>';
   var others=posts.filter(function(a){return a.id!==x.id}).slice(0,6).map(function(a){return '<a href="#post-'+esc(a.slug)+'">'+esc(a.title)+'</a>'}).join('');
   v.innerHTML='<div class="pw"><article class="post"><a href="#blog" style="color:var(--mute)">← Back to all posts</a><div style="margin-top:20px"><span class="pill">'+esc(x.category)+'</span></div><h1>'+esc(x.title)+'</h1><div class="rule"></div><div class="prose">'+prose+'</div>'+(isOwner?'<div class="row" style="justify-content:flex-start;margin-top:36px"><button class="btn alt" id="edit">Edit</button><button class="btn alt" id="del">Delete</button></div>':'')+'</article><aside class="side">'+(f.toc.length?'<div class="box"><h3>In this article</h3><div class="toc">'+f.toc.map(function(t){return '<a data-t="'+t.id+'">'+esc(t.t)+'</a>'}).join('')+'</div></div>':'')+(others?'<div class="box"><h3>More posts</h3><div class="more">'+others+'</div></div>':'')+'<div class="box"><h3>About Me</h3><div class="me"><div class="av">VA</div><div><div class="serif" style="font-size:19px">Vishwajeet Adkine</div><small>Researcher • Builder • Dreamer</small></div></div><p>I’m passionate about Artificial Intelligence, research and using technology to create real-world impact.</p></div></aside></div>';
@@ -239,6 +260,7 @@ function route(){
   var d=$('del');if(d)d.onclick=async function(){if(!confirm('Delete this blog?'))return;var r=await sb.from('posts').delete().eq('id',x.id);if(r.error){alert('Could not delete: '+r.error.message);return}await load();location.hash='blog'};
   window.scrollTo(0,0);return;
  }
+ if(path==='/'||path==='/index.html')setSeo('Vishwajeet Adkine — AI, Research & Technology','Ideas, research, and practical notes on artificial intelligence, machine learning, and technology.','https://vishwajeet-blog-psi.vercel.app/','website');
  v.style.display='none';home.style.display='';blog.style.display='';
  if(h==='blog'){setTimeout(function(){blog.scrollIntoView()},0)}
 }
