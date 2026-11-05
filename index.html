@@ -194,7 +194,7 @@ function render(){
  else if(failed){g.innerHTML='<p style="color:var(--mute)">Could not load posts right now. Please refresh in a moment.</p>'}
  else if(!posts.length){g.innerHTML='<p style="color:var(--mute)">No posts yet.</p>'}
  else g.innerHTML=posts.map(function(x){
-  return '<a class="card" href="#post-'+esc(x.slug)+'"><div class="im">'+(arts[x.category]||arts.def)+'<span class="tag">'+esc(x.category)+'</span></div><div class="bd"><h3>'+esc(x.title)+'</h3><span class="go">Read blog →</span></div></a>';
+  return '<a class="card" href="/posts/'+encodeURIComponent(x.slug)+'"><div class="im">'+(arts[x.category]||arts.def)+'<span class="tag">'+esc(x.category)+'</span></div><div class="bd"><h3>'+esc(x.title)+'</h3><span class="go">Read blog →</span></div></a>';
  }).join('');
  var c={};posts.forEach(function(x){c[x.category]=(c[x.category]||0)+1});
  $('cats').innerHTML=Object.keys(c).map(function(k){return '<div class="cat"><a href="#blog">'+esc(k)+'</a><span>'+c[k]+'</span></div>'}).join('');
@@ -253,7 +253,7 @@ function route(){
   var desc=(x.body||'').replace(/[#*`>\n]/g,' ').replace(/\s+/g,' ').trim().slice(0,155)||('An article by Vishwajeet Adkine about '+x.category+'.');
   setSeo(x.title+' — Vishwajeet Adkine',desc,'https://vishwajeet-blog-psi.vercel.app/posts/'+encodeURIComponent(x.slug),'article');
   var prose=x.body?f.html:'<div class="soon">This blog will be added here soon.</div>';
-  var others=posts.filter(function(a){return a.id!==x.id}).slice(0,6).map(function(a){return '<a href="#post-'+esc(a.slug)+'">'+esc(a.title)+'</a>'}).join('');
+  var others=posts.filter(function(a){return a.id!==x.id}).slice(0,6).map(function(a){return '<a href="/posts/'+encodeURIComponent(a.slug)+'">'+esc(a.title)+'</a>'}).join('');
   v.innerHTML='<div class="pw"><article class="post"><a href="#blog" style="color:var(--mute)">← Back to all posts</a><div style="margin-top:20px"><span class="pill">'+esc(x.category)+'</span></div><h1>'+esc(x.title)+'</h1><div class="rule"></div><div class="prose">'+prose+'</div>'+(isOwner?'<div class="row" style="justify-content:flex-start;margin-top:36px"><button class="btn alt" id="edit">Edit</button><button class="btn alt" id="del">Delete</button></div>':'')+'</article><aside class="side">'+(f.toc.length?'<div class="box"><h3>In this article</h3><div class="toc">'+f.toc.map(function(t){return '<a data-t="'+t.id+'">'+esc(t.t)+'</a>'}).join('')+'</div></div>':'')+(others?'<div class="box"><h3>More posts</h3><div class="more">'+others+'</div></div>':'')+'<div class="box"><h3>About Me</h3><div class="me"><div class="av">VA</div><div><div class="serif" style="font-size:19px">Vishwajeet Adkine</div><small>Researcher • Builder • Dreamer</small></div></div><p>I’m passionate about Artificial Intelligence, research and using technology to create real-world impact.</p></div></aside></div>';
   v.querySelectorAll('.toc a').forEach(function(a){a.onclick=function(){var t=document.getElementById(a.getAttribute('data-t'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}});
   var e=$('edit');if(e)e.onclick=function(){openEditor(x)};
@@ -283,7 +283,7 @@ $('save').onclick=async function(){
  else{slug=(t.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60)||'blog')+'-'+Date.now().toString(36);row.slug=slug;r=await sb.from('posts').insert(row).select('slug')}
  $('save').disabled=false;
  if(r.error||!r.data||!r.data.length){alert('Could not save. Make sure you are logged in as the owner.'+(r.error?'\n'+r.error.message:''));return}
- closeAll();await load();location.hash='post-'+r.data[0].slug;
+ closeAll();await load();history.pushState({},'', '/posts/'+encodeURIComponent(r.data[0].slug));route();
 };
 $('loginLink').onclick=function(e){e.preventDefault();$('lerr').textContent='';$('lmodal').classList.add('open');$('l-email').focus()};
 $('login').onclick=async function(){
