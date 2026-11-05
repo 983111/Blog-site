@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /owner/
+
+Sitemap: https://vishwajeet-blog-psi.vercel.app/sitemap.xml
