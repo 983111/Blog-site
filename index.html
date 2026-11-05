@@ -244,7 +244,7 @@ function setSeo(title,description,url,type){
 }
 function route(){
  var path=location.pathname, h=location.hash.slice(1),v=$('view'),home=$('home'),blog=$('blog');
- if(path.indexOf('/posts/')===0){h='post-'+decodeURIComponent(path.slice(7).replace(/\/$/,''));}
+ if(path.indexOf('/posts/')===0 && !h){h='post-'+decodeURIComponent(path.slice(7).replace(/\/$/,''));}
  if(h.indexOf('post-')===0&&loaded){
   var slug=h.slice(5),x=posts.filter(function(a){return a.slug===slug})[0];
   home.style.display='none';blog.style.display='none';v.style.display='block';
@@ -260,7 +260,7 @@ function route(){
   var d=$('del');if(d)d.onclick=async function(){if(!confirm('Delete this blog?'))return;var r=await sb.from('posts').delete().eq('id',x.id);if(r.error){alert('Could not delete: '+r.error.message);return}await load();location.hash='blog'};
   window.scrollTo(0,0);return;
  }
- if(path==='/'||path==='/index.html')setSeo('Vishwajeet Adkine — AI, Research & Technology','Ideas, research, and practical notes on artificial intelligence, machine learning, and technology.','https://vishwajeet-blog-psi.vercel.app/','website');
+ setSeo('Vishwajeet Adkine — AI, Research & Technology','Ideas, research, and practical notes on artificial intelligence, machine learning, and technology.','https://vishwajeet-blog-psi.vercel.app/','website');
  v.style.display='none';home.style.display='';blog.style.display='';
  if(h==='blog'){setTimeout(function(){blog.scrollIntoView()},0)}
 }
