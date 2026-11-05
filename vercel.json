@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/posts/:slug", "destination": "/index.html" }
+    { "source": "/posts/:slug", "destination": "/index.html" },
+    { "source": "/sitemap.xml", "destination": "/api/sitemap" }
   ]
 }
