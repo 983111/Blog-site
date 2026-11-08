@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Vishwajeet Adkine writes about artificial intelligence, machine learning, research, engineering, and technology.">
+<meta name="description" content="Independent field notes by Vishwajeet Adkine on artificial intelligence, machine learning, research, and engineering.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://vishwajeet-blog-psi.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vishwajeet Adkine — AI, Research & Technology">
-<meta property="og:description" content="Ideas, research, and practical notes on artificial intelligence, machine learning, and technology.">
+<meta property="og:description" content="Independent field notes on artificial intelligence, machine learning, research, and engineering.">
 <meta property="og:url" content="https://vishwajeet-blog-psi.vercel.app/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vishwajeet Adkine — Blog">
 <meta name="twitter:description" content="Writing on AI, research, machine learning, and technology.">
 <meta name="google-site-verification" content="4laV47mppL62lEqaw6JKJMwgfSvP4oeB09_l33M98UM" />
-<title>Vishwajeet Adkine — Blog</title>
+<title>Vishwajeet Adkine — AI & Research Journal</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#fdfaf0;--card:#fffdf6;--soft:#f6efdd;--ink:#16130e;--mute:#6b665a;--line:#eadfc6;--btn:#111;--btnt:#fff;--g:#6a9a5b;
@@ -98,49 +98,178 @@ textarea{min-height:300px;resize:vertical}
 footer{text-align:center;color:var(--mute);font-size:14px;padding:36px 0 20px}
 @media(max-width:1000px){.pw{grid-template-columns:1fr}.pw aside{position:static}}
 @media(max-width:900px){.hero{grid-template-columns:1fr}.hero .art{border-radius:0}.main{grid-template-columns:1fr}.links{display:none}}
+
+/* MBZUAI-inspired journal design: deep blue, desert sand, architectural geometry */
+:root{--bg:#f5f3ed;--card:#fff;--soft:#e9e4d8;--ink:#082f4d;--mute:#60717c;--line:#d9dedf;--btn:#07385b;--btnt:#fff;--g:#b39b6d;color-scheme:light}
+:root[data-theme="dark"]{--bg:#f5f3ed;--card:#fff;--soft:#e9e4d8;--ink:#082f4d;--mute:#60717c;--line:#d9dedf;--btn:#07385b;--btnt:#fff;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#f5f3ed;--card:#fff;--soft:#e9e4d8;--ink:#082f4d;--mute:#60717c;--line:#d9dedf;--btn:#07385b;--btnt:#fff;color-scheme:light}}
+body{background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+nav{position:sticky;top:0;z-index:40;display:flex;min-height:82px;border:0;border-bottom:1px solid #e1e4e3;border-radius:0;padding:0 0;background:rgba(255,255,255,.96);backdrop-filter:blur(14px)}
+.logo{gap:13px;color:#07385b;font:600 17px Inter,Arial,sans-serif;letter-spacing:-.035em}
+.logo b{width:38px;height:38px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:#07385b;color:#fff;font:600 12px Inter,Arial,sans-serif;letter-spacing:-.04em}
+.logo span{display:flex;align-items:baseline;gap:9px}
+.logo small{color:#83909a;font:400 10px Inter,Arial,sans-serif;letter-spacing:.08em}
+.links{gap:clamp(15px,2.1vw,29px);font-size:12px}
+.links a{color:#284a61;padding:31px 0 27px;border-bottom:2px solid transparent}
+.links a.on,.links a:hover{color:#08709a;border-color:#b39b6d}
+.tools{gap:10px}
+.ib{display:none}
+.btn{border-radius:2px;background:#07385b;color:#fff;padding:13px 19px;font:500 12px Inter,Arial,sans-serif}
+.btn.alt{background:transparent;border:1px solid #cbd4d8;color:#07385b}
+.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:590px;margin:0 calc((1280px - 100vw)/2) 0;border:0;border-radius:0;background:#07385b;overflow:hidden}
+.hero .t{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:70px clamp(42px,7vw,110px);background:linear-gradient(135deg,#07385b 0%,#062b48 100%);color:#fff}
+.hero-kicker{display:flex;align-items:center;gap:10px;color:#e0d0ad;font:600 9px Inter,Arial,sans-serif;letter-spacing:.19em}
+.hero-kicker i{width:7px;height:7px;background:#d9c49a;border-radius:50%}
+.hero h1{margin:30px 0 22px;color:#fff;font:500 clamp(48px,6vw,78px)/1.01 Georgia,"Times New Roman",serif;letter-spacing:-.055em}
+.hero p{max-width:470px;margin:0 0 30px;color:rgba(255,255,255,.76);font:400 15px/1.8 Inter,Arial,sans-serif}
+.hero-actions{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.hero .btn{background:#e1d0ac;color:#092f4b}
+.hero .btn span{font-size:16px}
+.hero-secondary{color:#fff;border-bottom:1px solid rgba(255,255,255,.55);padding:8px 0;font:500 12px Inter,Arial,sans-serif}
+.hero-secondary span{padding-left:5px}
+.hero-footnote{display:flex;gap:22px;flex-wrap:wrap;margin-top:58px;padding-top:17px;border-top:1px solid rgba(255,255,255,.2);width:100%;color:rgba(255,255,255,.6);font:9px Inter,Arial,sans-serif;letter-spacing:.14em}
+.hero .art.campus-art{position:relative;display:block;min-height:590px;padding:0;border-radius:0;overflow:hidden;background:#6d675a}
+.campus-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%;filter:saturate(.72) contrast(1.04)}
+.campus-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,28,45,.04) 15%,rgba(4,28,45,.16) 48%,rgba(4,28,45,.78) 100%)}
+.mashrabiya{position:absolute;inset:0;opacity:.17;pointer-events:none;background-image:repeating-linear-gradient(45deg,transparent 0 15px,rgba(255,246,222,.65) 16px,transparent 17px 32px),repeating-linear-gradient(-45deg,transparent 0 15px,rgba(255,246,222,.45) 16px,transparent 17px 32px);mask-image:linear-gradient(135deg,#000 0%,transparent 75%)}
+.campus-label{position:absolute;top:30px;left:32px;padding:9px 12px;border:1px solid rgba(255,255,255,.5);background:rgba(6,43,72,.34);color:#fff;font:9px Inter,Arial,sans-serif;letter-spacing:.2em}
+.campus-label i{font-style:normal;color:#d9c49a}
+.campus-caption{position:absolute;left:34px;bottom:36px;color:#fff}
+.campus-caption span{display:block;margin-bottom:13px;color:#e4d2aa;font:9px Inter,Arial,sans-serif;letter-spacing:.18em}
+.campus-caption strong{font:500 clamp(27px,3.4vw,43px)/1.08 Georgia,serif;letter-spacing:-.03em}
+.main{grid-template-columns:minmax(0,1fr) 310px;gap:60px;margin-top:74px}
+.sh{align-items:flex-end;margin-bottom:22px;padding-bottom:17px;border-bottom:1px solid #d9dedf}
+.sh h2{padding:0;border:0;color:#07385b;font:500 clamp(30px,3.4vw,42px)/1.1 Georgia,serif;letter-spacing:-.04em}
+.sh .r{font:11px Inter,Arial,sans-serif;color:#08709a}
+.sh .r a:hover{color:#07385b}
+.grid{display:grid;grid-template-columns:1fr;gap:0;counter-reset:articles}
+.card{position:relative;display:grid;grid-template-columns:54px minmax(0,1fr);gap:18px;min-width:0;padding:25px 8px 25px 0;border:0;border-top:1px solid #d9dedf;border-radius:0;background:transparent;box-shadow:none;transform:none;counter-increment:articles;transition:padding .2s,border-color .2s}
+.card:last-child{border-bottom:1px solid #d9dedf}
+.card:hover{transform:none;border-color:#9eafb7;background:transparent}
+.card .im{display:none}
+.card .bd{position:relative;display:flex;flex-direction:column;gap:8px;padding:0;min-width:0}
+.card .bd:before{content:counter(articles,decimal-leading-zero);position:absolute;right:0;top:0;color:#b39b6d;font:400 27px Georgia,serif}
+.card h3{max-width:calc(100% - 58px);color:#07385b;font:500 23px/1.2 Georgia,serif;letter-spacing:-.025em}
+.card .go{margin:5px 0 0;color:#08709a;font:500 11px Inter,Arial,sans-serif}
+.card .go:after{content:" ↗"}
+.card:before{content:"";grid-column:1;grid-row:1;width:32px;height:32px;margin-top:3px;border:1px solid #d8dfe0;border-radius:50%;background:linear-gradient(135deg,#e8e2d4 0 50%,#fff 50%); }
+.side .box{padding:22px 0;margin:0 0 34px;border:0;border-top:1px solid #d9dedf;border-radius:0;background:transparent}
+.side h3{margin:0 0 20px;padding:0;border:0;color:#07385b;font:500 22px Georgia,serif}
+.side h3:before{content:"";display:inline-block;width:32px;height:2px;margin:0 12px 6px 0;background:#b39b6d}
+.me{gap:13px;margin-bottom:16px}
+.av{width:58px;height:58px;background:#e9e4d8;color:#07385b;font:500 21px Georgia,serif}
+.me .serif{color:#07385b}
+.me small{color:#75838c;font-size:11px}
+.side p{color:#5e707b;font:13px/1.75 Inter,Arial,sans-serif}
+.side a{color:#08709a}
+.cat{padding:11px 0;border-bottom:1px solid #e1e5e5;color:#244a62;font:12px Inter,Arial,sans-serif}
+.cat span{border-radius:0;background:#e9e4d8;color:#496274}
+.pw{grid-template-columns:minmax(0,1fr) 270px;gap:50px;margin:55px 0}
+.post{padding:clamp(28px,5vw,70px);border:0;border-radius:0;background:#fff}
+.post>.pill{background:#e9e4d8;border-radius:0;color:#456176;font:600 10px Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.post h1{color:#07385b;font:500 clamp(36px,4.5vw,60px)/1.08 Georgia,serif;letter-spacing:-.04em}
+.post .rule{height:2px;width:54px;background:#b39b6d;border-radius:0}
+.prose{max-width:790px}
+.prose p{color:#40596b;font:15px/1.9 Inter,Arial,sans-serif}
+.prose p.lead{color:#60717c;font-size:18px}
+.prose h2{color:#07385b;font:500 clamp(27px,3vw,36px)/1.16 Georgia,serif;letter-spacing:-.025em}
+.prose h3{color:#17425f;font:500 23px Georgia,serif}
+.prose li{background:#f1eee6;border-radius:0;border-left:2px solid #b39b6d;color:#40596b;font:14px/1.8 Inter,Arial,sans-serif}
+.prose blockquote{background:#f1eee6;border-left:2px solid #b39b6d;border-radius:0;color:#173e5a;font:500 22px/1.5 Georgia,serif}
+.prose code{background:#f1eee6;border-radius:2px}
+.toc a,.more a{padding:10px 0;border-bottom:1px solid #e1e5e5;color:#536b7b;font:12px/1.5 Inter,Arial,sans-serif}
+.soon{background:#f1eee6;border-radius:0}
+.modal{backdrop-filter:blur(5px)}
+.sheet{border:1px solid #d9dedf;border-radius:2px;background:#fff}
+.sheet h2{color:#07385b;font:500 27px Georgia,serif}
+input,textarea,select{border-radius:2px;border-color:#d9dedf;background:#fbfaf6}
+footer{margin-top:65px;border-top:1px solid #d9dedf;color:#78858c;font:10px Inter,Arial,sans-serif;letter-spacing:.08em}
+@media(max-width:1000px){
+ .wrap{padding-left:25px;padding-right:25px}
+ .hero{margin-left:-25px;margin-right:-25px;min-height:510px}
+ .hero .t{padding:55px 40px}
+ .hero .art.campus-art{min-height:510px}
+ .main{grid-template-columns:minmax(0,1fr) 260px;gap:35px}
+}
+@media(max-width:900px){
+ nav{min-height:72px}
+ .links{display:none}
+ .hero{grid-template-columns:1fr;margin-left:-25px;margin-right:-25px}
+ .hero .t{padding:54px 30px}
+ .hero h1{font-size:clamp(46px,9vw,68px)}
+ .hero .art.campus-art{min-height:370px}
+ .main{grid-template-columns:1fr;gap:35px;margin-top:54px}
+ .side{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+ .pw{grid-template-columns:1fr}
+ .pw aside{position:static}
+}
+@media(max-width:600px){
+ .wrap{padding-left:19px;padding-right:19px}
+ nav{min-height:66px}
+ .logo{font-size:14px}
+ .logo small{display:none}
+ .logo b{width:34px;height:34px;font-size:11px}
+ .hero{margin-left:-19px;margin-right:-19px}
+ .hero .t{padding:46px 23px 35px}
+ .hero h1{font-size:47px}
+ .hero p{font-size:14px}
+ .hero-footnote{margin-top:38px;gap:12px}
+ .hero .art.campus-art{min-height:315px}
+ .campus-label{top:19px;left:20px}
+ .campus-caption{left:22px;bottom:24px}
+ .main{margin-top:44px}
+ .sh h2{font-size:32px}
+ .card{grid-template-columns:38px minmax(0,1fr);gap:12px;padding:21px 0}
+ .card:before{width:27px;height:27px}
+ .card h3{font-size:20px}
+ .card .bd:before{font-size:22px}
+ .side{grid-template-columns:1fr;gap:0}
+ .pw{margin:28px 0}
+ .post{padding:25px 20px}
+ .post h1{font-size:39px}
+ .prose p{font-size:14px}
+ footer{margin-top:40px}
+}
+
 </style>
 </head>
 <body>
 <div class="wrap">
 <nav>
- <a class="logo" href="#home"><b>VA</b><span>Vishwajeet Adkine</span></a>
- <div class="links"><a class="on" href="#home">Home</a><a href="#blog">Blog</a><a href="https://prt-delta.vercel.app/" target="_blank" rel="noopener">Projects</a><a href="https://prt-delta.vercel.app/" target="_blank" rel="noopener">About</a><a href="mailto:vishwajeetadkine705@gmail.com">Contact</a></div>
+ <a class="logo" href="#home"><b>VA</b><span>Vishwajeet Adkine <small> / AI &amp; Research Journal</small></span></a>
+ <div class="links"><a class="on" href="#home">Home</a><a href="#blog">Journal</a><a href="https://prt-delta.vercel.app/" target="_blank" rel="noopener">Projects</a><a href="https://prt-delta.vercel.app/" target="_blank" rel="noopener">About</a><a href="mailto:vishwajeetadkine705@gmail.com">Contact</a></div>
  <div class="tools"><button class="btn own" id="newTop" style="display:none">✎ Create Blog</button><button class="btn alt own" id="logout" style="display:none">Log out</button><button class="ib" id="theme" aria-label="Toggle theme">☾</button></div>
 </nav>
 
 <div id="home">
 <section class="hero">
  <div class="t">
-  <span class="pill">● Welcome to my blog</span>
-  <h1>Ideas. Research. Innovation.</h1>
-  <p>A space where I document my thoughts on AI, research, technology, and the journey of building impactful solutions.</p>
-  <a class="btn" href="#blog">Explore Articles →</a>
+  <span class="hero-kicker"><i></i> FIELD NOTES · ARTIFICIAL INTELLIGENCE</span>
+  <h1>Ideas that move<br>intelligence forward.</h1>
+  <p>Research notes, engineering experiments, and reflections on building AI systems for meaningful real-world problems.</p>
+  <div class="hero-actions"><a class="btn" href="#blog">Explore the journal <span>↗</span></a><a class="hero-secondary" href="https://prt-delta.vercel.app/">Explore my work <span>→</span></a></div>
+  <div class="hero-footnote"><span>INDEPENDENT WRITING</span><span>AI · RESEARCH · ENGINEERING</span></div>
  </div>
- <div class="art">
-  <svg viewBox="0 0 460 280" fill="none" stroke="#1d1a14" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-   <rect x="48" y="30" width="46" height="46" rx="8" fill="#3a4350"/><rect x="60" y="42" width="22" height="22" rx="4" fill="none" stroke="#fff"/>
-   <path d="M205 40c-18-6-30 8-24 20-10 8-4 24 10 22 6 12 24 10 28-2 14 0 20-16 10-24 6-12-6-24-24-16z" fill="#fffdf6"/>
-   <rect x="330" y="38" width="62" height="46" rx="8" fill="#fffdf6"/><path d="M352 52l-10 9 10 9M370 52l10 9-10 9"/>
-   <path d="M60 240c-6-30 14-48 36-54-4 26-14 44-36 54zM96 232c-4-34 18-60 52-62-2 30-18 52-52 62z" fill="#6a9a5b" stroke="#1d1a14"/>
-   <path d="M98 236v-60" /><path d="M72 240h52l-6 32H78z" fill="#fffdf6"/>
-   <path d="M150 262h24l-6-14h-18zM170 262h110" /><rect x="150" y="246" width="70" height="14" fill="#b9b5ab"/><rect x="156" y="232" width="60" height="14" fill="#555"/>
-   <path d="M240 258L222 150l130-6 40 112z" fill="#c9c9c9"/>
-   <path d="M20 270h420"/>
-  </svg>
+ <div class="art campus-art">
+  <img src="https://masdarcity.ae/images/default-source/media-gallery/architectural-wonders/mbzuai_campus_1307082cd06df4689af2a23a9243aa012.jpg?sfvrsn=15afc456_1" alt="MBZUAI campus architecture in Masdar City">
+  <div class="campus-overlay"></div><div class="mashrabiya"></div>
+  <span class="campus-label">MASDAR CITY <i> / </i> ABU DHABI</span>
+  <div class="campus-caption"><span>ARCHITECTURE · IDEAS · DISCOVERY</span><strong>A place shaped<br>for new thinking.</strong></div>
  </div>
 </section>
 </div>
 
 <div class="main" id="blog">
  <section>
-  <div class="sh"><h2>Latest Posts</h2><div class="r"><a href="#blog">View all posts →</a><button class="btn alt own" id="newMid" style="display:none">+ Create Blog</button></div></div>
+  <div class="sh"><h2>Latest writing</h2><div class="r"><a href="#blog">View all posts →</a><button class="btn alt own" id="newMid" style="display:none">+ Create Blog</button></div></div>
   <div class="grid" id="grid"></div>
  </section>
  <aside class="side">
   <div class="box">
    <h3>About Me</h3>
-   <div class="me"><div class="av">VA</div><div><div class="serif" style="font-size:19px">Vishwajeet Adkine</div><small>Researcher • Builder • Dreamer</small></div></div>
-   <p>I’m passionate about Artificial Intelligence, research and using technology to create real-world impact.</p>
+   <div class="me"><div class="av">VA</div><div><div class="serif" style="font-size:19px">Vishwajeet Adkine</div><small>AI researcher · Builder · Student</small></div></div>
+   <p>I write about artificial intelligence, machine learning, research experiments, and the process of turning ideas into working systems.</p>
    <a href="https://prt-delta.vercel.app/" target="_blank" rel="noopener" style="font-size:15px">Learn more →</a>
   </div>
   <div class="box"><h3>Categories</h3><div id="cats"></div></div>
