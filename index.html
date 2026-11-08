@@ -232,6 +232,136 @@ footer{margin-top:65px;border-top:1px solid #d9dedf;color:#78858c;font:10px Inte
  footer{margin-top:40px}
 }
 
+
+/* Editorial reset — remove card UI and let writing lead */
+:root{--bg:#f7f6f1;--card:transparent;--soft:#ece8dd;--ink:#092f4b;--mute:#62727c;--line:#d9dedf;--btn:#07385b;--btnt:#fff;--g:#b39b6d;color-scheme:light}
+:root[data-theme="dark"],@media(prefers-color-scheme:dark){color-scheme:light}
+body{background:#f7f6f1;color:#092f4b;font-size:14px}
+.wrap{max-width:1240px;padding:0 42px}
+nav{min-height:76px;padding:0;border:0;border-bottom:1px solid #d9dedf;background:#f7f6f1}
+.logo{font:500 16px Inter,Arial,sans-serif}
+.logo b{width:36px;height:36px;padding:0;border:0;border-radius:50%;background:#07385b;color:#fff;font:600 11px Inter,Arial,sans-serif;letter-spacing:0;display:grid;place-items:center}
+.logo small{font-size:9px;letter-spacing:.1em}
+.links{gap:26px;font-size:11px}
+.links a{padding:29px 0 25px;color:#39576b}
+.links a.on,.links a:hover{color:#08709a;border-color:#b39b6d}
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);width:100%;min-height:470px;margin:0;border:0;border-bottom:1px solid #d9dedf;border-radius:0;background:transparent;overflow:hidden}
+.hero .t{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:72px 34px 62px 0;background:transparent;color:#092f4b}
+.hero-kicker{color:#927b52;font-size:9px;letter-spacing:.2em}
+.hero-kicker i{background:#b39b6d}
+.hero h1{max-width:720px;margin:25px 0 18px;color:#07385b;font:500 clamp(48px,6.3vw,78px)/1.04 Georgia,serif;letter-spacing:-.055em}
+.hero p{max-width:510px;margin:0 0 26px;color:#5e707b;font:400 15px/1.85 Inter,Arial,sans-serif}
+.hero-actions{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.hero-link{color:#07385b;border-bottom:1px solid #b39b6d;padding:7px 0;font:500 12px Inter,Arial,sans-serif}
+.hero-link span{padding-left:8px;color:#a18b62;font-size:16px}
+.hero-secondary{color:#587080;border:0;padding:7px 0;font:400 12px Inter,Arial,sans-serif}
+.hero-secondary span{padding-left:6px;color:#a18b62}
+.hero-footnote{display:flex;gap:24px;flex-wrap:wrap;margin-top:55px;padding-top:14px;border-top:1px solid #d9dedf;color:#849098;font:9px Inter,Arial,sans-serif;letter-spacing:.13em}
+.hero-ornament{position:relative;min-height:470px;overflow:hidden;background:#07385b}
+.ornament-grid{position:absolute;inset:-10%;opacity:.32;background-image:linear-gradient(45deg,transparent 46%,#d9c49a 47%,#d9c49a 48%,transparent 49%),linear-gradient(-45deg,transparent 46%,#d9c49a 47%,#d9c49a 48%,transparent 49%);background-size:56px 56px;mask-image:radial-gradient(ellipse at 55% 48%,#000 0%,transparent 72%)}
+.ornament-mark{position:absolute;inset:0;display:grid;place-items:center;color:rgba(241,232,211,.95);font:500 clamp(130px,20vw,260px)/1 Georgia,serif;letter-spacing:-.09em}
+.ornament-caption{position:absolute;bottom:24px;right:26px;color:#d7c39a;font:9px Inter,Arial,sans-serif;letter-spacing:.17em}
+.campus-gallery{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:0;margin:0 0 72px;border-bottom:1px solid #d9dedf}
+.campus-gallery figure{position:relative;height:170px;margin:0;overflow:hidden;background:#e9e4d8;border-right:1px solid #f7f6f1}
+.campus-gallery figure:last-of-type{border:0}
+.campus-gallery img{width:100%;height:100%;object-fit:cover;filter:saturate(.65);transition:transform .5s ease}
+.campus-gallery figure:hover img{transform:scale(1.035)}
+.campus-gallery figcaption{position:absolute;left:13px;bottom:12px;padding:5px 7px;background:rgba(7,56,91,.82);color:#fff;font:8px Inter,Arial,sans-serif;letter-spacing:.12em}
+.gallery-credit{grid-column:1/-1;margin:9px 0 0;color:#89949a;font:9px Inter,Arial,sans-serif;text-align:right}
+.main{grid-template-columns:minmax(0,1fr) 245px;gap:70px;margin-top:0;margin-bottom:80px}
+.sh{align-items:baseline;margin-bottom:0;padding:0 0 18px;border-bottom:1px solid #cfd7d9}
+.sh h2{padding:0;border:0;color:#07385b;font:500 38px/1.1 Georgia,serif;letter-spacing:-.04em}
+.sh .r{font-size:11px;color:#547084}
+.grid{display:block;counter-reset:articles}
+.card{display:grid;grid-template-columns:62px minmax(0,1fr);gap:18px;padding:25px 0 27px;border:0;border-bottom:1px solid #d9dedf;border-radius:0;background:transparent;box-shadow:none;transform:none;counter-increment:articles}
+.card:hover{transform:none;border-color:#aab8be;background:transparent}
+.card .im{display:none}
+.card:before{content:counter(articles,decimal-leading-zero);grid-column:1;grid-row:1;width:auto;height:auto;margin:1px 0 0;border:0;border-radius:0;background:none;color:#b39b6d;font:400 27px Georgia,serif}
+.card .bd{display:block;min-width:0;padding:0}
+.card .tag{position:static;display:block;width:max-content;margin:0 0 9px;padding:0;background:none;color:#9b845c;font:600 9px Inter,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase}
+.card h3{max-width:calc(100% - 40px);margin:0 0 8px;color:#07385b;font:500 24px/1.2 Georgia,serif;letter-spacing:-.025em}
+.card .go{display:inline-block;margin:2px 0 0;color:#607784;font:11px Inter,Arial,sans-serif}
+.card .go:after{content:" ↗";color:#a18b62}
+.side{padding-top:5px}
+.side .box{margin:0 0 35px;padding:17px 0 22px;border:0;border-top:1px solid #cfd7d9;border-radius:0;background:transparent}
+.side h3{margin:0 0 16px;padding:0;border:0;color:#07385b;font:500 22px Georgia,serif}
+.side h3:before{display:none}
+.me{gap:12px}
+.av{width:45px;height:45px;background:#e9e4d8;color:#07385b;font:500 17px Georgia,serif}
+.me .serif{color:#07385b;font:500 16px Georgia,serif!important}
+.me small{color:#78868e;font-size:10px}
+.side p{color:#60717c;font:12px/1.8 Inter,Arial,sans-serif}
+.side a{color:#08709a;font-size:11px!important}
+.cat{padding:10px 0;border-bottom:1px solid #e2e5e3;color:#36556a;font:11px Inter,Arial,sans-serif}
+.cat span{background:transparent;color:#9b845c}
+.pw{grid-template-columns:minmax(0,1fr) 225px;gap:68px;margin:52px 0 80px}
+.post{padding:0 0 30px;border:0;border-radius:0;background:transparent}
+.post h1{max-width:850px;margin:17px 0 12px;color:#07385b;font:500 clamp(39px,5vw,62px)/1.08 Georgia,serif;letter-spacing:-.045em}
+.post .rule{width:42px;height:2px;margin:22px 0 30px;background:#b39b6d}
+.post>.pill{background:transparent;padding:0;color:#9b845c;font:600 9px Inter,Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.prose{max-width:760px}
+.prose p{margin:0 0 20px;color:#40596b;font:15px/1.9 Inter,Arial,sans-serif}
+.prose p.lead{font-size:18px;line-height:1.8;color:#627681}
+.prose h2{margin:44px 0 16px;padding:0;border:0;color:#07385b;font:500 31px/1.18 Georgia,serif;letter-spacing:-.03em}
+.prose h3{margin:29px 0 10px;color:#17425f;font:500 22px/1.25 Georgia,serif}
+.prose ul,.prose ol{display:block;margin:0 0 24px;padding-left:22px;list-style:disc}
+.prose ol{list-style:decimal}
+.prose li{margin:0 0 8px;padding:0;border:0;border-radius:0;background:none;color:#40596b;font:14px/1.8 Inter,Arial,sans-serif}
+.prose li strong{font:600 14px Inter,Arial,sans-serif}
+.prose ol li::before,.prose ul.chk li::before{display:none}
+.prose blockquote{margin:27px 0;padding:2px 0 2px 20px;border-left:2px solid #b39b6d;border-radius:0;background:transparent;color:#23475f;font:italic 21px/1.5 Georgia,serif}
+.prose code{padding:2px 5px;border-radius:0;background:#ece8dd;color:#183e59}
+.prose pre{overflow:auto;padding:18px 20px;border-left:2px solid #b39b6d;background:#eeece5;color:#24465d}
+.prose a{color:#08709a;text-decoration:underline;text-underline-offset:3px}
+.prose hr{margin:32px 0;border-top:1px solid #d9dedf}
+.toc a,.more a{padding:9px 0;border-bottom:1px solid #e2e5e3;color:#536b7b;font:11px/1.55 Inter,Arial,sans-serif}
+.soon{padding:0;background:transparent;color:#627681}
+.sheet{border:1px solid #d9dedf;border-radius:2px;background:#fff}
+.sheet h2{color:#07385b;font:500 26px Georgia,serif}
+input,textarea,select{border-radius:2px;border-color:#d9dedf;background:#fff}
+footer{margin-top:0;border-top:1px solid #d9dedf;color:#7c898f;font:9px Inter,Arial,sans-serif;letter-spacing:.1em}
+@media(max-width:900px){
+ .wrap{padding:0 25px}
+ .hero{grid-template-columns:1fr}
+ .hero .t{padding:55px 0}
+ .hero-ornament{min-height:270px}
+ .ornament-mark{font-size:170px}
+ .campus-gallery{grid-template-columns:1fr 1fr}
+ .campus-gallery figure:last-of-type{display:none}
+ .main{grid-template-columns:1fr;gap:38px}
+ .side{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+ .pw{grid-template-columns:1fr;gap:30px}
+ .pw aside{position:static}
+}
+@media(max-width:600px){
+ .wrap{padding:0 19px}
+ nav{min-height:65px}
+ .logo{font-size:13px}
+ .logo small{display:none}
+ .hero .t{padding:44px 0 36px}
+ .hero h1{font-size:46px}
+ .hero p{font-size:14px}
+ .hero-footnote{margin-top:38px;gap:12px}
+ .hero-ornament{min-height:220px}
+ .ornament-mark{font-size:140px}
+ .ornament-caption{font-size:8px;right:14px;bottom:15px}
+ .campus-gallery{grid-template-columns:1fr 1fr;margin-bottom:50px}
+ .campus-gallery figure{height:120px}
+ .campus-gallery figure:last-of-type{display:none}
+ .gallery-credit{font-size:8px}
+ .main{margin-top:0}
+ .sh h2{font-size:31px}
+ .card{grid-template-columns:38px minmax(0,1fr);gap:12px;padding:20px 0}
+ .card:before{font-size:23px}
+ .card h3{font-size:20px}
+ .side{grid-template-columns:1fr;gap:0}
+ .pw{margin:34px 0}
+ .post h1{font-size:39px}
+ .prose p{font-size:14px}
+ .prose h2{font-size:27px;margin-top:35px}
+ footer{margin-top:40px}
+}
+
 </style>
 </head>
 <body>
@@ -245,18 +375,19 @@ footer{margin-top:65px;border-top:1px solid #d9dedf;color:#78858c;font:10px Inte
 <div id="home">
 <section class="hero">
  <div class="t">
-  <span class="hero-kicker"><i></i> FIELD NOTES · ARTIFICIAL INTELLIGENCE</span>
-  <h1>Ideas that move<br>intelligence forward.</h1>
-  <p>Research notes, engineering experiments, and reflections on building AI systems for meaningful real-world problems.</p>
-  <div class="hero-actions"><a class="btn" href="#blog">Explore the journal <span>↗</span></a><a class="hero-secondary" href="https://prt-delta.vercel.app/">Explore my work <span>→</span></a></div>
-  <div class="hero-footnote"><span>INDEPENDENT WRITING</span><span>AI · RESEARCH · ENGINEERING</span></div>
+  <span class="hero-kicker"><i></i> NOTES FROM AN AI BUILDER</span>
+  <h1>Thinking through<br>artificial intelligence.</h1>
+  <p>A journal of research, experiments, technical ideas and lessons from building intelligent systems.</p>
+  <div class="hero-actions"><a class="hero-link" href="#blog">Read the latest writing <span>↘</span></a><a class="hero-secondary" href="https://prt-delta.vercel.app/">View selected work <span>↗</span></a></div>
+  <div class="hero-footnote"><span>RESEARCH &amp; ENGINEERING</span><span>INDEPENDENT JOURNAL · 2026</span></div>
  </div>
- <div class="art campus-art">
-  <img src="https://masdarcity.ae/images/default-source/media-gallery/architectural-wonders/mbzuai_campus_1307082cd06df4689af2a23a9243aa012.jpg?sfvrsn=15afc456_1" alt="MBZUAI campus architecture in Masdar City">
-  <div class="campus-overlay"></div><div class="mashrabiya"></div>
-  <span class="campus-label">MASDAR CITY <i> / </i> ABU DHABI</span>
-  <div class="campus-caption"><span>ARCHITECTURE · IDEAS · DISCOVERY</span><strong>A place shaped<br>for new thinking.</strong></div>
- </div>
+ <div class="hero-ornament" aria-hidden="true"><div class="ornament-grid"></div><span class="ornament-mark">AI</span><span class="ornament-caption">IDEAS / EXPERIMENTS / DISCOVERY</span></div>
+</section>
+<section class="campus-gallery" aria-label="MBZUAI campus inspiration">
+ <figure><img src="https://staticcdn.mbzuai.ac.ae/mbzuaiwpprd01/2022/07/MBZUAI-B1-building-1295px-e1657217162929-1024x594.png" alt="MBZUAI main building in Masdar City"><figcaption>01 — THE MAIN BUILDING</figcaption></figure>
+ <figure><img src="https://staticcdn.mbzuai.ac.ae/mbzuaiwpprd01/2022/08/FAI_2801-1.jpg" alt="Campus courtyard at MBZUAI"><figcaption>02 — CAMPUS COURTYARD</figcaption></figure>
+ <figure><img src="https://imageio.forbes.com/specials-images/imageserve/68ffc8e3c3e2c62375a5c885/0x0.jpg?fit=bounds&amp;format=jpg&amp;height=900&amp;width=1600" alt="MBZUAI campus courtyard and geometric canopy"><figcaption>03 — A PLACE FOR IDEAS</figcaption></figure>
+ <p class="gallery-credit">Campus imagery: MBZUAI and Masdar City. Used as visual references; this is an independent journal.</p>
 </section>
 </div>
 
