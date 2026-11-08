@@ -117,7 +117,7 @@ nav{position:sticky;top:0;z-index:40;display:flex;min-height:82px;border:0;borde
 .ib{display:none}
 .btn{border-radius:2px;background:#07385b;color:#fff;padding:13px 19px;font:500 12px Inter,Arial,sans-serif}
 .btn.alt{background:transparent;border:1px solid #cbd4d8;color:#07385b}
-.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:590px;margin:0 calc((1280px - 100vw)/2) 0;border:0;border-radius:0;background:#07385b;overflow:hidden}
+.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;width:100vw;min-height:590px;margin:0 0 0 calc(50% - 50vw);border:0;border-radius:0;background:#07385b;overflow:hidden}
 .hero .t{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:70px clamp(42px,7vw,110px);background:linear-gradient(135deg,#07385b 0%,#062b48 100%);color:#fff}
 .hero-kicker{display:flex;align-items:center;gap:10px;color:#e0d0ad;font:600 9px Inter,Arial,sans-serif;letter-spacing:.19em}
 .hero-kicker i{width:7px;height:7px;background:#d9c49a;border-radius:50%}
@@ -187,7 +187,7 @@ input,textarea,select{border-radius:2px;border-color:#d9dedf;background:#fbfaf6}
 footer{margin-top:65px;border-top:1px solid #d9dedf;color:#78858c;font:10px Inter,Arial,sans-serif;letter-spacing:.08em}
 @media(max-width:1000px){
  .wrap{padding-left:25px;padding-right:25px}
- .hero{margin-left:-25px;margin-right:-25px;min-height:510px}
+ .hero{min-height:510px}
  .hero .t{padding:55px 40px}
  .hero .art.campus-art{min-height:510px}
  .main{grid-template-columns:minmax(0,1fr) 260px;gap:35px}
@@ -195,7 +195,7 @@ footer{margin-top:65px;border-top:1px solid #d9dedf;color:#78858c;font:10px Inte
 @media(max-width:900px){
  nav{min-height:72px}
  .links{display:none}
- .hero{grid-template-columns:1fr;margin-left:-25px;margin-right:-25px}
+ .hero{grid-template-columns:1fr}
  .hero .t{padding:54px 30px}
  .hero h1{font-size:clamp(46px,9vw,68px)}
  .hero .art.campus-art{min-height:370px}
@@ -210,7 +210,7 @@ footer{margin-top:65px;border-top:1px solid #d9dedf;color:#78858c;font:10px Inte
  .logo{font-size:14px}
  .logo small{display:none}
  .logo b{width:34px;height:34px;font-size:11px}
- .hero{margin-left:-19px;margin-right:-19px}
+ .hero{}
  .hero .t{padding:46px 23px 35px}
  .hero h1{font-size:47px}
  .hero p{font-size:14px}
@@ -389,7 +389,7 @@ function route(){
   var d=$('del');if(d)d.onclick=async function(){if(!confirm('Delete this blog?'))return;var r=await sb.from('posts').delete().eq('id',x.id);if(r.error){alert('Could not delete: '+r.error.message);return}await load();location.hash='blog'};
   window.scrollTo(0,0);return;
  }
- setSeo('Vishwajeet Adkine — AI, Research & Technology','Ideas, research, and practical notes on artificial intelligence, machine learning, and technology.','https://vishwajeet-blog-psi.vercel.app/','website');
+ setSeo('Vishwajeet Adkine — AI & Research Journal','Independent field notes on artificial intelligence, machine learning, research, and engineering.','https://vishwajeet-blog-psi.vercel.app/','website');
  v.style.display='none';home.style.display='';blog.style.display='';
  if(h==='blog'){setTimeout(function(){blog.scrollIntoView()},0)}
 }
