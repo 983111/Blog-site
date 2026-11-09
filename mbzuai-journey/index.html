@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A personal account of how Vishwajeet Adkine prepared for his MBZUAI undergraduate application through AI projects, research, mathematics, programming and deliberate practice.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://vishwajeet-blog-psi.vercel.app/mbzuai-journey/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Preparing for MBZUAI: The Work Behind My Application">
+<meta property="og:description" content="The projects, setbacks, study plan and preparation behind my application to MBZUAI's undergraduate AI programme.">
+<meta property="og:image" content="https://mbzuai.ac.ae/content/media/styles/5_4_small/public/media-centre/images/students-working-in-lab.jpg?itok=97rPLhr6">
+<meta property="og:url" content="https://vishwajeet-blog-psi.vercel.app/mbzuai-journey/">
+<title>Preparing for MBZUAI — Vishwajeet Adkine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f7f6f1;--white:#fff;--navy:#07385b;--ink:#183b52;--muted:#687b85;--sand:#b39b6d;--line:#dce1df;--soft:#eeeae0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;font-size:15px;line-height:1.8}
+a{color:inherit}
+.top{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(5vw,24px);background:rgba(247,246,241,.96)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy);font-size:14px;font-weight:600;letter-spacing:-.02em}
+.brand-mark{display:grid;place-items:center;width:35px;height:35px;border-radius:50%;background:var(--navy);color:white;font-size:11px}
+.top a.back{font-size:12px;color:#607888;text-decoration:none;border-bottom:1px solid var(--sand);padding:5px 0}
+.shell{max-width:1160px;margin:auto;padding:0 34px}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:480px;margin:0 calc(34px - max(5vw,24px)) 0;padding:0;overflow:hidden;background:var(--navy);color:white}
+.hero-copy{padding:68px clamp(32px,6vw,82px);display:flex;flex-direction:column;justify-content:center}
+.kicker{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#dfcda7;font-weight:700}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:500}
+h1{font-size:clamp(39px,5.2vw,66px);line-height:1.07;letter-spacing:-.045em;margin:25px 0 18px}
+.deck{font-size:15px;line-height:1.85;color:rgba(255,255,255,.78);max-width:520px;margin:0}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:38px;padding-top:16px;border-top:1px solid rgba(255,255,255,.2);font-size:9px;letter-spacing:.12em;color:rgba(255,255,255,.62);text-transform:uppercase}
+.hero-image{position:relative;min-height:480px;background:#d5d7d3}
+.hero-image img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center;filter:saturate(.72)}
+.hero-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,28,45,.48),transparent 60%)}
+.image-label{position:absolute;z-index:1;left:25px;bottom:22px;color:white;font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+.intro{max-width:780px;margin:68px auto 45px}
+.intro p{font-family:"Playfair Display",Georgia,serif;font-size:clamp(20px,2.4vw,27px);line-height:1.55;color:var(--navy);margin:0}
+.content-grid{display:grid;grid-template-columns:minmax(0,760px) 230px;gap:70px;align-items:start;justify-content:center;margin:0 auto 90px}
+article{min-width:0}
+article section{padding-top:27px;margin-top:34px;border-top:1px solid var(--line)}
+article h2{font-size:clamp(27px,3vw,36px);line-height:1.2;letter-spacing:-.025em;color:var(--navy);margin:0 0 17px}
+article p{margin:0 0 19px;color:#425c6c;line-height:1.9}
+article strong{color:var(--navy);font-weight:600}
+article a{color:#08709a;text-decoration-thickness:1px;text-underline-offset:3px}
+figure{margin:34px 0 30px}
+figure img{display:block;width:100%;max-height:470px;object-fit:cover;background:var(--soft)}
+figcaption{padding-top:10px;color:#78868d;font-size:10px;line-height:1.6}
+.callout{margin:28px 0;padding:22px 25px;border-left:2px solid var(--sand);background:#efede6;color:#315267;font-family:"Playfair Display",Georgia,serif;font-size:21px;line-height:1.55}
+.steps{padding-left:22px;margin:18px 0 25px;color:#425c6c}
+.steps li{padding:0 0 12px 7px;line-height:1.8}
+.toc{position:sticky;top:28px;padding-top:12px}
+.toc h3{font-size:19px;color:var(--navy);margin:0 0 13px}
+.toc a{display:block;padding:9px 0;border-bottom:1px solid var(--line);font-size:11px;line-height:1.5;color:#617784;text-decoration:none}
+.toc a:hover{color:var(--navy)}
+.note{font-size:12px;color:var(--muted);padding:16px 0;border-top:1px solid var(--line);margin-top:28px}
+.sources{padding:20px 22px;background:#eeece5;margin-top:35px}
+.sources h3{font-size:20px;color:var(--navy);margin:0 0 10px}
+.sources ul{padding-left:18px;margin:0}
+.sources li{font-size:12px;line-height:1.8;margin:5px 0;color:#526a78}
+footer{border-top:1px solid var(--line);padding:27px 34px;text-align:center;color:#7b898f;font-size:10px;letter-spacing:.08em}
+@media(max-width:850px){.hero{grid-template-columns:1fr;margin:0}.hero-copy{padding:52px 30px}.hero-image{min-height:340px}.content-grid{grid-template-columns:1fr;gap:25px}.toc{position:static;grid-row:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.toc h3{grid-column:1/-1}.intro{margin:48px auto 35px}}
+@media(max-width:560px){.shell{padding:0 20px}.top{height:66px;padding:0 20px}.hero-copy{padding:43px 22px}.hero-image{min-height:260px}.meta{gap:10px}.intro{margin:38px auto 28px}.content-grid{margin-bottom:55px}.toc{grid-template-columns:1fr 1fr}.callout{font-size:19px}footer{text-align:left;padding:22px 20px}}
+</style>
+</head>
+<body>
+<header class="top">
+<a class="brand" href="/"><span class="brand-mark">VA</span><span>Vishwajeet Adkine <span style="font-weight:400;color:#829099"> / Journal</span></span></a>
+<a class="back" href="/#blog">← Back to the journal</a>
+</header>
+<div class="shell">
+<header class="hero">
+<div class="hero-copy">
+<div class="kicker">Personal notes · University applications</div>
+<h1>Preparing for MBZUAI: The Work Behind My Application</h1>
+<p class="deck">How an earlier setback, building AI projects, research experience and a more deliberate approach to mathematics and programming shaped my path toward studying artificial intelligence.</p>
+<div class="meta"><span>Vishwajeet Adkine</span><span>9 November 2026</span><span>8 min read</span></div>
+</div>
+<div class="hero-image">
+<img src="https://mbzuai.ac.ae/content/media/styles/5_4_small/public/media-centre/images/students-working-in-lab.jpg?itok=97rPLhr6" alt="MBZUAI students collaborating at a computer in a research laboratory" fetchpriority="high">
+<div class="image-label">Learning through research and collaboration · MBZUAI</div>
+</div>
+</header>
+<div class="intro"><p>My goal was not simply to apply to an AI university. I wanted to become someone who could explain, build, test and improve intelligent systems—and show that work through evidence.</p></div>
+<div class="content-grid">
+<article>
+<section id="why">
+<h2>Why MBZUAI?</h2>
+<p>The <strong>Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)</strong> is a research-focused university dedicated to artificial intelligence, located in Masdar City, Abu Dhabi. What attracted me was the opportunity to study AI as a central discipline rather than as a small component of a general computer science degree.</p>
+<p>I am particularly interested in machine learning, natural language processing and the engineering behind useful AI systems. The undergraduate programme's focus on AI foundations, practical work and research makes it relevant to the direction I want to take. I also value the possibility of learning in an environment where research is part of the university's everyday academic culture.</p>
+<p>MBZUAI's official <a href="https://mbzuai.ac.ae/study-artificial-intelligence" target="_blank" rel="noopener">AI study programmes</a> and <a href="https://mbzuai.ac.ae/campus-community" target="_blank" rel="noopener">campus and community information</a> helped me understand the academic environment beyond its name and reputation.</p>
+</section>
+<section id="setback">
+<h2>The application that changed my approach</h2>
+<p>My first attempt was for MBZUAI's AI and Business pathway in 2025. I reached the interview stage, but I was not selected. That result forced me to examine the difference between being interested in artificial intelligence and being academically and technically prepared to study it at a demanding level.</p>
+<p>I realised that enthusiasm and a list of projects were not enough. I needed stronger mathematical foundations, a clearer understanding of machine learning, and the ability to explain the decisions behind the systems I had built. I treated the rejection as a reason to change my preparation, not as a reason to abandon the goal.</p>
+<div class="callout">The important change was moving from saying that I was interested in AI to building evidence that I was prepared to study it.</div>
+</section>
+<section id="projects">
+<h2>I learned by building real systems</h2>
+<p>I continued developing projects where AI had a concrete purpose. Working on <strong>CeryS AI</strong>, an agricultural assistant, pushed me to think about how machine learning can support farmers—not just how a model performs on a benchmark. It exposed me to data quality, image classification, external validation, model limitations and the challenge of making a system useful in real conditions.</p>
+<p>I also worked on <strong>ScamShield</strong>, exploring ways to identify suspicious messages, and contributed to research work through the <strong>SISTER</strong> project, where I engaged with cybersecurity datasets, model evaluation and explainability methods such as SHAP. These experiences made me more careful about metrics and more interested in understanding why a model makes a prediction.</p>
+<figure>
+<img src="https://mbzuai.ac.ae/content/media/styles/5_4_small/public/media-centre/images/robotics-lab-2.jpg?itok=rgmVRAse" alt="A researcher working with robotic arms in an MBZUAI robotics laboratory" loading="lazy">
+<figcaption>Research and experimentation at MBZUAI. Image: MBZUAI Media Centre.</figcaption>
+</figure>
+<p>Building projects also taught me to document experiments, compare results, acknowledge failure cases and communicate technical work. My portfolio and GitHub became a record of that process rather than just a collection of project titles.</p>
+</section>
+<section id="research">
+<h2>Research taught me to question results</h2>
+<p>One of the most useful lessons from research was that a high score does not automatically mean a model is reliable. A model can perform extremely well on data similar to its training set and still struggle when the input distribution changes.</p>
+<p>That became clear while testing image-classification models beyond their original dataset. I had to look at class-level performance, confusion patterns and external test results—not only overall accuracy. It changed how I evaluate AI: I now pay much more attention to generalisation, limitations and the evidence behind a claim.</p>
+<figure>
+<img src="https://mbzuai.ac.ae/content/media/styles/5_4_small/public/media-centre/images/professor-le-song-with-students.jpg?itok=F9hJ51Kc" alt="MBZUAI professor discussing a technical project with students" loading="lazy">
+<figcaption>Faculty and students working through a technical problem. Image: MBZUAI Media Centre.</figcaption>
+</figure>
+</section>
+<section id="academics">
+<h2>Strengthening the academic foundations</h2>
+<p>My next priority was mathematics. I knew that linear algebra, probability, statistics and calculus are not optional extras for someone who wants to understand machine learning. They are part of the language used to describe models, optimisation and uncertainty.</p>
+<p>I organised my preparation around the topics most relevant to the undergraduate screening syllabus:</p>
+<ul class="steps">
+<li><strong>Algebra and functions:</strong> equations, inequalities, logarithms, exponentials and function behaviour.</li>
+<li><strong>Linear algebra:</strong> vectors, matrix operations, determinants, rank, systems of equations, eigenvalues and eigenvectors.</li>
+<li><strong>Probability and statistics:</strong> conditional probability, Bayes' theorem, distributions, expectation, variance and interpretation of data.</li>
+<li><strong>Calculus:</strong> limits, derivatives, integration and the role of gradients in optimisation.</li>
+<li><strong>Discrete mathematics and logic:</strong> sets, counting, relations, Boolean logic, sequences and algorithmic reasoning.</li>
+</ul>
+<p>I am using structured study material, including MIT OpenCourseWare, to revisit difficult areas and then moving quickly into problem-solving. I prefer attempting challenging questions, identifying the exact gap in my reasoning and studying that concept before trying again.</p>
+</section>
+<section id="programming">
+<h2>Preparing to think like a programmer</h2>
+<p>For programming, I focused on Python fundamentals and algorithmic problem-solving. I practised tracing code rather than only reading it: what a loop changes, how a list is modified, what a function returns, and how a dictionary or set behaves in a given problem.</p>
+<p>My practice includes strings, lists, tuples, dictionaries, sets, stacks, queues, conditionals, loops, functions and basic data structures. I also work through pseudocode and logic questions because being able to reason about an algorithm matters more than memorising syntax.</p>
+<p>For AI reasoning, I revised the machine-learning lifecycle, supervised and unsupervised learning, regression, classification, evaluation metrics and confusion matrices. I want to be able to interpret a result and explain what it means—not simply recognise a definition.</p>
+</section>
+<section id="application">
+<h2>My current application</h2>
+<p>For the 2026 application cycle, I chose the <strong>BSc in Artificial Intelligence</strong> and submitted an Early Action application. My focus is now on being ready for the next stages of the process, including academic screening and any further evaluation.</p>
+<p>I have tried to make my application reflect a consistent direction: practical AI development, research curiosity, a willingness to investigate model failures, and a serious effort to improve the mathematical and programming foundations required for university-level study.</p>
+<p>I am still waiting for an admission decision. This is an account of preparation and intention—not a claim that I have been admitted to MBZUAI or that the application process is complete.</p>
+</section>
+<section id="lessons">
+<h2>What this journey has taught me</h2>
+<p>Preparing for MBZUAI has made me more precise about what I know and what I still need to learn. Projects gave me practical questions to investigate; research taught me to test claims; mathematics and programming preparation are helping me build the foundations to understand the systems I want to create.</p>
+<p>There is no single project or certificate that can replace that work. My aim is to keep improving, remain honest about my gaps and arrive at the next stage able to demonstrate my reasoning—not just describe my ambitions.</p>
+<p>That is the preparation behind my application, and it is work I intend to continue regardless of the outcome.</p>
+<div class="sources">
+<h3>University references</h3>
+<ul>
+<li><a href="https://mbzuai.ac.ae/study-artificial-intelligence" target="_blank" rel="noopener">MBZUAI — Study Artificial Intelligence</a></li>
+<li><a href="https://mbzuai.ac.ae/campus-community" target="_blank" rel="noopener">MBZUAI — Campus and Community</a></li>
+<li><a href="https://mbzuai.ac.ae/news-events/media-center" target="_blank" rel="noopener">MBZUAI — Media Centre and visual assets</a></li>
+</ul>
+</div>
+<p class="note">This is a personal account by an independent applicant. It is not an official MBZUAI publication and does not imply university endorsement. Campus and laboratory photographs are from the MBZUAI Media Centre and are credited to MBZUAI.</p>
+</section>
+</article>
+<aside class="toc">
+<h3>In this article</h3>
+<a href="#why">Why MBZUAI?</a>
+<a href="#setback">The earlier setback</a>
+<a href="#projects">Building AI systems</a>
+<a href="#research">Research and evaluation</a>
+<a href="#academics">Mathematics preparation</a>
+<a href="#programming">Python and logic</a>
+<a href="#application">My current application</a>
+<a href="#lessons">What I learned</a>
+</aside>
+</div>
+</div>
+<footer>© 2026 Vishwajeet Adkine · Independent AI & Research Journal</footer>
+</body>
+</html>
