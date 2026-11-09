@@ -584,7 +584,7 @@ function render(){
  else g.innerHTML=posts.map(function(x){
   return '<a class="card" href="/posts/'+encodeURIComponent(x.slug)+'"><div class="bd"><span class="tag">'+esc(x.category)+'</span><h3>'+esc(x.title)+'</h3><span class="go">Read article</span></div></a>';
  }).join('');
- var c={};posts.forEach(function(x){c[x.category]=(c[x.category]||0)+1});
+\n // Permanent editorial feature: MBZUAI application journey.\n var mbzuaiCard='<a class="card" href="/mbzuai-journey/"><div class="bd"><span class="tag">APPLICATION JOURNEY</span><h3>Preparing for MBZUAI: The Work Behind My Application</h3><span class="go">Read article</span></div></a>';\n g.insertAdjacentHTML('beforeend',mbzuaiCard);\n var c={};posts.forEach(function(x){c[x.category]=(c[x.category]||0)+1});
  $('cats').innerHTML=Object.keys(c).map(function(k){return '<div class="cat"><a href="#blog">'+esc(k)+'</a><span>'+c[k]+'</span></div>'}).join('');
  $('catlist').innerHTML=Object.keys(c).map(function(k){return '<option value="'+esc(k)+'">'}).join('');
  document.querySelectorAll('.own').forEach(function(e){e.style.display=isOwner?'':'none'});
