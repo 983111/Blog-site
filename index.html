@@ -362,6 +362,72 @@ footer{margin-top:0;border-top:1px solid #d9dedf;color:#7c898f;font:9px Inter,Ar
  footer{margin-top:40px}
 }
 
+
+/* Wide editorial layout refresh */
+.wrap{width:min(100% - 112px, 1480px);max-width:1480px;margin-inline:auto;padding:0}
+nav{width:100%;min-height:78px}
+.hero{grid-template-columns:minmax(0,1.12fr) minmax(340px,.88fr);min-height:510px;margin-top:0}
+.hero .t{padding:76px clamp(30px,5vw,82px) 66px 0}
+.hero h1{text-align:left;max-width:760px}
+.hero p{text-align:left;max-width:560px}
+.hero-actions,.hero-footnote{justify-content:flex-start}
+.hero-ornament{min-height:510px}
+.campus-gallery{margin-bottom:76px}
+.main{display:block;margin:0 0 86px}
+.main>section{width:100%;min-width:0}
+.sh{margin-bottom:0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(28px,5vw,76px);align-items:start}
+.card{min-width:0;min-height:132px;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:27px 0}
+.card .bd{min-width:0}
+.card .tag{display:block;position:static;width:max-content;max-width:100%;margin:0 0 10px;padding:0;background:none;color:#9b845c;font:600 9px Inter,Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase}
+.card h3{max-width:100%;margin:0 0 10px;text-align:left;font-size:clamp(20px,1.7vw,25px);line-height:1.26}
+.card .go{display:inline-block;margin:0}
+.card:before{font-size:25px}
+.side{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(30px,6vw,90px);max-width:850px;margin:72px 0 0;padding:0}
+.side .box{width:100%;margin:0}
+.pw{display:block;margin:48px 0 90px}
+.post{width:100%;max-width:1100px;margin:0 auto}
+.post h1{text-align:left;max-width:1000px}
+.prose{max-width:940px}
+.prose p,.prose h2,.prose h3,.prose ul,.prose ol,.prose blockquote{text-align:left}
+.pw aside{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 64px;max-width:940px;margin:54px auto 0}
+.pw aside .box{margin:0}
+footer{text-align:left;padding:25px 0 28px}
+@media(max-width:1000px){
+ .wrap{width:calc(100% - 64px);padding:0}
+ .hero{grid-template-columns:minmax(0,1fr) minmax(260px,.8fr)}
+ .main{display:block}
+ .grid{column-gap:32px}
+}
+@media(max-width:900px){
+ .wrap{width:calc(100% - 50px);padding:0}
+ .hero{grid-template-columns:1fr}
+ .hero .t{padding:54px 0}
+ .hero-ornament{min-height:290px}
+ .main{display:block}
+ .grid{grid-template-columns:1fr 1fr}
+ .side{display:grid;grid-template-columns:1fr 1fr}
+ .pw aside{position:static;display:grid;grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+ .wrap{width:calc(100% - 38px);padding:0}
+ .hero .t{padding:42px 0 35px}
+ .hero h1{font-size:clamp(42px,12vw,52px)}
+ .hero-ornament{min-height:220px}
+ .campus-gallery{margin-bottom:48px}
+ .main{margin-bottom:56px}
+ .grid{grid-template-columns:1fr}
+ .card{min-height:0;padding:22px 0}
+ .card h3{font-size:21px}
+ .side{grid-template-columns:1fr;gap:28px;margin-top:48px}
+ .pw{margin:30px 0 55px}
+ .post{padding:0}
+ .post h1{font-size:39px}
+ .prose{max-width:100%}
+ .pw aside{grid-template-columns:1fr;gap:20px;margin-top:38px}
+ footer{text-align:left;margin-top:30px}
+}
+
 </style>
 </head>
 <body>
@@ -454,7 +520,7 @@ function render(){
  else if(failed){g.innerHTML='<p style="color:var(--mute)">Could not load posts right now. Please refresh in a moment.</p>'}
  else if(!posts.length){g.innerHTML='<p style="color:var(--mute)">No posts yet.</p>'}
  else g.innerHTML=posts.map(function(x){
-  return '<a class="card" href="/posts/'+encodeURIComponent(x.slug)+'"><div class="im">'+(arts[x.category]||arts.def)+'<span class="tag">'+esc(x.category)+'</span></div><div class="bd"><h3>'+esc(x.title)+'</h3><span class="go">Read blog →</span></div></a>';
+  return '<a class="card" href="/posts/'+encodeURIComponent(x.slug)+'"><div class="bd"><span class="tag">'+esc(x.category)+'</span><h3>'+esc(x.title)+'</h3><span class="go">Read article</span></div></a>';
  }).join('');
  var c={};posts.forEach(function(x){c[x.category]=(c[x.category]||0)+1});
  $('cats').innerHTML=Object.keys(c).map(function(k){return '<div class="cat"><a href="#blog">'+esc(k)+'</a><span>'+c[k]+'</span></div>'}).join('');
