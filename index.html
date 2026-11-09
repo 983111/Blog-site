@@ -460,6 +460,36 @@ footer{text-align:left;padding:25px 0 28px}
   .side{grid-template-columns:1fr;gap:34px;margin-top:42px}
 }
 
+
+
+/* Let article navigation and related writing span the page */
+.pw aside{
+  display:grid;
+  width:100%;
+  max-width:none;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(44px,7vw,112px);
+  margin:64px auto 0;
+  align-items:start;
+}
+.pw aside .box{
+  width:100%;
+  max-width:none;
+  min-width:0;
+  margin:0;
+}
+.pw aside .toc a,
+.pw aside .more a{
+  padding:13px 0;
+  line-height:1.65;
+}
+@media(max-width:900px){
+  .pw aside{grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+}
+@media(max-width:600px){
+  .pw aside{grid-template-columns:1fr;gap:30px;margin-top:38px}
+}
+
 </style>
 </head>
 <body>
