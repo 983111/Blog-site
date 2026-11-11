@@ -261,7 +261,7 @@ nav{min-height:76px;padding:0;border:0;border-bottom:1px solid #d9dedf;backgroun
 .ornament-grid{position:absolute;inset:-10%;opacity:.32;background-image:linear-gradient(45deg,transparent 46%,#d9c49a 47%,#d9c49a 48%,transparent 49%),linear-gradient(-45deg,transparent 46%,#d9c49a 47%,#d9c49a 48%,transparent 49%);background-size:56px 56px;mask-image:radial-gradient(ellipse at 55% 48%,#000 0%,transparent 72%)}
 .ornament-mark{position:absolute;inset:0;display:grid;place-items:center;color:rgba(241,232,211,.95);font:500 clamp(130px,20vw,260px)/1 Georgia,serif;letter-spacing:-.09em}
 .ornament-caption{position:absolute;bottom:24px;right:26px;color:#d7c39a;font:9px Inter,Arial,sans-serif;letter-spacing:.17em}
-.campus-gallery{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:0;margin:0 0 72px;border-bottom:1px solid #d9dedf}
+.campus-gallery{display:grid;grid-template-columns:1.2fr 1fr;gap:0;margin:0 0 72px;border-bottom:1px solid #d9dedf}
 .campus-gallery figure{position:relative;height:170px;margin:0;overflow:hidden;background:#e9e4d8;border-right:1px solid #f7f6f1}
 .campus-gallery figure:last-of-type{border:0}
 .campus-gallery img{width:100%;height:100%;object-fit:cover;filter:saturate(.65);transition:transform .5s ease}
@@ -327,7 +327,6 @@ footer{margin-top:0;border-top:1px solid #d9dedf;color:#7c898f;font:9px Inter,Ar
  .hero-ornament{min-height:270px}
  .ornament-mark{font-size:170px}
  .campus-gallery{grid-template-columns:1fr 1fr}
- .campus-gallery figure:last-of-type{display:none}
  .main{grid-template-columns:1fr;gap:38px}
  .side{display:grid;grid-template-columns:1fr 1fr;gap:26px}
  .pw{grid-template-columns:1fr;gap:30px}
@@ -516,6 +515,14 @@ footer{text-align:left;padding:25px 0 28px}
   .campus-gallery{margin-bottom:48px}
 }
 
+
+/* Responsive, openly licensed campus gallery */
+.campus-gallery{grid-template-columns:1.2fr 1fr}
+.campus-gallery figure{height:clamp(250px,20vw,340px);min-height:250px}
+.campus-gallery img{display:block;width:100%;height:100%;object-fit:cover}
+@media(max-width:900px){.campus-gallery{grid-template-columns:1fr 1fr}.campus-gallery figure{height:260px;min-height:260px}}
+@media(max-width:600px){.campus-gallery{grid-template-columns:1fr}.campus-gallery figure{height:220px;min-height:220px}}
+
 </style>
 </head>
 <body>
@@ -535,13 +542,12 @@ footer{text-align:left;padding:25px 0 28px}
   <div class="hero-actions"><a class="hero-link" href="#blog">Read the latest writing <span>↘</span></a><a class="hero-secondary" href="https://prt-delta.vercel.app/">View selected work <span>↗</span></a></div>
   <div class="hero-footnote"><span>RESEARCH &amp; ENGINEERING</span><span>INDEPENDENT JOURNAL · 2026</span></div>
  </div>
- <div class="art campus-art"><img src="https://staticcdn.mbzuai.ac.ae/mbzuaiwpprd01/2022/07/MBZUAI-B1-building-1295px-e1657217162929-1024x594.png" alt="Mohamed bin Zayed University of Artificial Intelligence campus in Masdar City, Abu Dhabi" loading="eager"><div class="campus-overlay"></div><div class="mashrabiya"></div><div class="campus-label"><i>MBZUAI</i> / MASDAR CITY, ABU DHABI</div><div class="campus-caption"><span>ARTIFICIAL INTELLIGENCE · RESEARCH</span><strong>Where ideas<br>become intelligence.</strong></div></div>
+ <div class="art campus-art"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Multiuse_Hall_of_MBZUAI.jpg/1280px-Multiuse_Hall_of_MBZUAI.jpg" alt="Mohamed bin Zayed University of Artificial Intelligence campus in Masdar City, Abu Dhabi" loading="eager"><div class="campus-overlay"></div><div class="mashrabiya"></div><div class="campus-label"><i>MBZUAI</i> / MASDAR CITY, ABU DHABI</div><div class="campus-caption"><span>ARTIFICIAL INTELLIGENCE · RESEARCH</span><strong>Where ideas<br>become intelligence.</strong></div></div>
 </section>
-<section class="campus-gallery" aria-label="MBZUAI campus inspiration">
- <figure><img src="https://staticcdn.mbzuai.ac.ae/mbzuaiwpprd01/2022/07/MBZUAI-B1-building-1295px-e1657217162929-1024x594.png" alt="MBZUAI main building in Masdar City"><figcaption>01 — THE MAIN BUILDING</figcaption></figure>
- <figure><img src="https://staticcdn.mbzuai.ac.ae/mbzuaiwpprd01/2022/08/FAI_2801-1.jpg" alt="Campus courtyard at MBZUAI"><figcaption>02 — CAMPUS COURTYARD</figcaption></figure>
- <figure><img src="https://imageio.forbes.com/specials-images/imageserve/68ffc8e3c3e2c62375a5c885/0x0.jpg?fit=bounds&amp;format=jpg&amp;height=900&amp;width=1600" alt="MBZUAI campus courtyard and geometric canopy"><figcaption>03 — A PLACE FOR IDEAS</figcaption></figure>
- <p class="gallery-credit">Campus imagery: MBZUAI and Masdar City. Used as visual references; this is an independent journal.</p>
+<section class="campus-gallery" aria-label="MBZUAI and Masdar City photographs">
+ <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Masdar_City_Image.jpg/1280px-Masdar_City_Image.jpg" alt="MBZUAI Knowledge Center and surrounding campus buildings in Masdar City" loading="lazy"><figcaption>01 — MASDAR CITY CAMPUS</figcaption></figure>
+ <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Multiuse_Hall_of_MBZUAI.jpg/1280px-Multiuse_Hall_of_MBZUAI.jpg" alt="Multiuse Hall at MBZUAI" loading="lazy"><figcaption>02 — MBZUAI MULTIUSE HALL</figcaption></figure>
+ <p class="gallery-credit">Images: “Masdar City Image” and “Multiuse Hall of MBZUAI” by NNegm, via Wikimedia Commons. Cropped for display. CC BY-SA 4.0 — <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">license</a>. <a href="https://commons.wikimedia.org/wiki/File:Masdar_City_Image.jpg" target="_blank" rel="noopener">Masdar image source</a> · <a href="https://commons.wikimedia.org/wiki/File:Multiuse_Hall_of_MBZUAI.jpg" target="_blank" rel="noopener">Hall image source</a>. Independent journal; no MBZUAI endorsement implied.</p>
 </section>
 </div>
 
