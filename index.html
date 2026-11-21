@@ -14,7 +14,7 @@
 <meta name="twitter:title" content="Vishwajeet Adkine | Blog">
 <meta name="twitter:description" content="Writing on AI, research, machine learning, and technology.">
 <meta name="google-site-verification" content="4laV47mppL62lEqaw6JKJMwgfSvP4oeB09_l33M98UM" />
-<title>Vishwajeet Adkine | AI & Research Journal</title>
+<title>Vishwajeet Adkine | Personal Journal</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#fdfaf0;--card:#fffdf6;--soft:#f6efdd;--ink:#16130e;--mute:#6b665a;--line:#eadfc6;--btn:#111;--btnt:#fff;--g:#6a9a5b;
@@ -561,7 +561,7 @@ footer{text-align:left;padding:25px 0 28px}
 <body>
 <div class="wrap">
 <nav>
- <a class="logo" href="#home"><b>VA</b><span>Vishwajeet Adkine <small> / AI &amp; Research Journal</small></span></a>
+ <a class="logo" href="#home"><b>VA</b><span>Vishwajeet Adkine <small> / Personal Journal</small></span></a>
  <div class="links"><a class="on" href="#home">Home</a><a href="#blog">Journal</a><a href="https://prt-delta.vercel.app/" target="_blank" rel="noopener">Projects</a><a href="https://prt-delta.vercel.app/" target="_blank" rel="noopener">About</a><a href="mailto:vishwajeetadkine705@gmail.com">Contact</a></div>
  <div class="tools"><button class="btn own" id="newTop" style="display:none">✎ Create Blog</button><button class="btn alt own" id="logout" style="display:none">Log out</button><button class="ib" id="theme" aria-label="Toggle theme">☾</button></div>
 </nav>
@@ -569,15 +569,15 @@ footer{text-align:left;padding:25px 0 28px}
 <div id="home">
 <section class="hero">
  <div class="t">
-  <span class="hero-kicker"><i></i> NOTES FROM AN AI BUILDER</span>
-  <h1>Thinking through<br>artificial intelligence.</h1>
-  <p>A journal of research, experiments, technical ideas and lessons from building intelligent systems.</p>
-  <div class="hero-actions"><a class="hero-link" href="#blog">Read the latest writing <span>↘</span></a><a class="hero-secondary" href="https://prt-delta.vercel.app/">View selected work <span>↗</span></a></div>
-  <div class="hero-footnote"><span>RESEARCH &amp; ENGINEERING</span><span>INDEPENDENT JOURNAL · 2026</span></div>
+  <span class="hero-kicker"><i></i> NOTES FROM MY EVERYDAY WORLD</span>
+  <h1>A life of<br>curiosity and making.</h1>
+  <p>I write about what I am learning, what I am building, the people and experiences that shape me, and the questions I keep coming back to.</p>
+  <div class="hero-actions"><a class="hero-link" href="#blog">Read my notes <span>↘</span></a><a class="hero-secondary" href="https://prt-delta.vercel.app/">Explore my projects <span>↗</span></a></div>
+  <div class="hero-footnote"><span>LIFE · LEARNING · PROJECTS</span><span>INDEPENDENT JOURNAL · 2026</span></div>
  </div>
- <div class="art campus-art"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1800&q=90" alt="Abstract digital technology installation representing artificial intelligence" loading="eager"><div class="campus-overlay"></div><div class="mashrabiya"></div><div class="campus-label"><i>AI RESEARCH</i> / COMPUTING &amp; SYSTEMS</div><div class="campus-caption"><span>ARTIFICIAL INTELLIGENCE · RESEARCH</span><strong>Where ideas<br>become intelligence.</strong></div></div>
+ <div class="art campus-art"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1800&q=90" alt="A notebook and writing space" loading="eager"><div class="campus-overlay"></div><div class="mashrabiya"></div><div class="campus-label"><i>PERSONAL NOTES</i> / LIFE &amp; LEARNING</div><div class="campus-caption"><span>LIFE · LEARNING · CURIOSITY</span><strong>A place for<br>unfinished thoughts.</strong></div></div>
 </section>
-<section class="campus-gallery" aria-label="Masdar City campus photographs">
+<section class="campus-gallery" aria-label="Photographs from everyday life">
  <figure><img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1400&q=85" alt="Modern data centre infrastructure and server systems" loading="lazy"><figcaption>01 — COMPUTING INFRASTRUCTURE</figcaption></figure>
  <figure><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85" alt="Close-up of electronic components and a printed circuit board" loading="lazy"><figcaption>02 — HARDWARE &amp; ENGINEERING</figcaption></figure>
  <p class="gallery-credit">Visuals: AI research, computing infrastructure and engineering.</p>
@@ -652,9 +652,7 @@ function render(){
   var photo=imageFor(x.category); return '<a class="card" href="/posts/'+encodeURIComponent(x.slug)+'"><div class="im"><img src="'+photo+'" alt="" loading="lazy"></div><div class="bd"><span class="tag">'+esc(x.category)+'</span><h3>'+esc(x.title)+'</h3><span class="go">Read article</span></div></a>';
  }).join('');
 
- // Permanent editorial feature: MBZUAI application journey.
- var mbzuaiCard='<a class="card" href="/mbzuai-journey/"><div class="bd"><span class="tag">APPLICATION JOURNEY</span><h3>Preparing for MBZUAI: The Work Behind My Application</h3><span class="go">Read article</span></div></a>';
- g.insertAdjacentHTML('beforeend',mbzuaiCard);
+
  var c={};posts.forEach(function(x){c[x.category]=(c[x.category]||0)+1});
  $('cats').innerHTML=Object.keys(c).map(function(k){return '<div class="cat"><a href="#blog">'+esc(k)+'</a><span>'+c[k]+'</span></div>'}).join('');
  $('catlist').innerHTML=Object.keys(c).map(function(k){return '<option value="'+esc(k)+'">'}).join('');
