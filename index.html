@@ -905,6 +905,9 @@ function render(){
   return '<a class="card" href="/posts/'+encodeURIComponent(x.slug)+'"><div class="bd"><span class="tag">'+esc(x.category)+'</span><h3>'+esc(x.title)+'</h3><span class="go">Read article</span></div></a>';
  }).join('');
 
+ // Restore the existing MBZUAI application journey feature.
+ var mbzuaiCard='<a class="card" href="/mbzuai-journey/"><div class="bd"><span class="tag">APPLICATION JOURNEY</span><h3>Preparing for MBZUAI: The Work Behind My Application</h3><span class="go">Read article</span></div></a>';
+ g.insertAdjacentHTML('beforeend',mbzuaiCard);
 
  var c={};posts.forEach(function(x){c[x.category]=(c[x.category]||0)+1});
  $('cats').innerHTML=Object.keys(c).map(function(k){return '<div class="cat"><a href="#blog">'+esc(k)+'</a><span>'+c[k]+'</span></div>'}).join('');
