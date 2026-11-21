@@ -529,6 +529,33 @@ footer{text-align:left;padding:25px 0 28px}
  .campus-gallery figure{height:260px;min-height:260px}
  .campus-gallery figure:last-of-type{display:block}
 }
+
+/* Personal journal refresh: photographic, human, and editorial */
+.hero .t{background:#f1eee6;color:#173e5a}
+.hero h1{color:#173e5a}
+.hero p{color:#5f6d72}
+.hero-kicker,.hero-footnote{color:#7b715f}
+.hero-kicker i{background:#b39b6d}
+.hero .btn{background:#173e5a;color:#fff}
+.hero-secondary{color:#173e5a;border-color:#9da7a6}
+.hero .art.campus-art{background:#ded8ca}
+.campus-art img{filter:saturate(.78) contrast(1.02)}
+.campus-overlay{background:linear-gradient(180deg,rgba(22,35,38,.02),rgba(22,35,38,.08) 45%,rgba(22,35,38,.62))}
+.campus-label{background:rgba(30,40,35,.22);border-color:rgba(255,255,255,.6)}
+.campus-caption span{color:#eee0c2}
+.campus-gallery figure{overflow:hidden}
+.campus-gallery img{filter:saturate(.78)}
+.card{grid-template-columns:minmax(0,1fr);gap:0;padding:0 0 22px;border-bottom:1px solid #d9dedf}
+.card:before{display:none}
+.card .im{display:block;height:190px;margin-bottom:16px;overflow:hidden;background:#e9e4d8}
+.card .im img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.card:hover .im img{transform:scale(1.025)}
+.card .bd{padding:0 2px}
+.card .tag{position:static;display:inline-block;align-self:flex-start;background:transparent;padding:0;color:#927c53;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.card h3{max-width:calc(100% - 58px);font-size:25px}
+.card .bd:before{top:1px}
+@media(max-width:600px){.card .im{height:210px}.card h3{font-size:22px}}
+
 </style>
 </head>
 <body>
@@ -548,11 +575,11 @@ footer{text-align:left;padding:25px 0 28px}
   <div class="hero-actions"><a class="hero-link" href="#blog">Read the latest writing <span>↘</span></a><a class="hero-secondary" href="https://prt-delta.vercel.app/">View selected work <span>↗</span></a></div>
   <div class="hero-footnote"><span>RESEARCH &amp; ENGINEERING</span><span>INDEPENDENT JOURNAL · 2026</span></div>
  </div>
- <div class="art campus-art"><img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1800&q=90" alt="Abstract digital technology installation representing artificial intelligence" loading="eager"><div class="campus-overlay"></div><div class="mashrabiya"></div><div class="campus-label"><i>AI RESEARCH</i> / COMPUTING &amp; SYSTEMS</div><div class="campus-caption"><span>ARTIFICIAL INTELLIGENCE · RESEARCH</span><strong>Where ideas<br>become intelligence.</strong></div></div>
+ <div class="art campus-art"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1800&q=90" alt="Abstract digital technology installation representing artificial intelligence" loading="eager"><div class="campus-overlay"></div><div class="mashrabiya"></div><div class="campus-label"><i>AI RESEARCH</i> / COMPUTING &amp; SYSTEMS</div><div class="campus-caption"><span>ARTIFICIAL INTELLIGENCE · RESEARCH</span><strong>Where ideas<br>become intelligence.</strong></div></div>
 </section>
 <section class="campus-gallery" aria-label="Masdar City campus photographs">
- <figure><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85" alt="Modern data centre infrastructure and server systems" loading="lazy"><figcaption>01 — COMPUTING INFRASTRUCTURE</figcaption></figure>
- <figure><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85" alt="Close-up of electronic components and a printed circuit board" loading="lazy"><figcaption>02 — HARDWARE &amp; ENGINEERING</figcaption></figure>
+ <figure><img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1400&q=85" alt="Modern data centre infrastructure and server systems" loading="lazy"><figcaption>01 — COMPUTING INFRASTRUCTURE</figcaption></figure>
+ <figure><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85" alt="Close-up of electronic components and a printed circuit board" loading="lazy"><figcaption>02 — HARDWARE &amp; ENGINEERING</figcaption></figure>
  <p class="gallery-credit">Visuals: AI research, computing infrastructure and engineering.</p>
 </section>
 </div>
@@ -608,6 +635,8 @@ var arts={
  'def':'<svg viewBox="0 0 300 190"><rect width="300" height="190" fill="#f6efdd"/><rect x="80" y="45" width="140" height="100" rx="10" fill="#fffdf6" stroke="#3a4350" stroke-width="3"/><path d="M100 75h100M100 95h100M100 115h60" stroke="#3a4350" stroke-width="4" stroke-linecap="round"/></svg>'
 };
 function esc(s){var d=document.createElement('div');d.textContent=s==null?'':s;return d.innerHTML}
+function imageFor(category){var s=(category||'').toLowerCase();if(/journey|personal|reflection|writing|life|thought/.test(s))return 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=85';if(/project|build|engineering|code|technology/.test(s))return 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=85';if(/learn|education|book|math|study/.test(s))return 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&q=85';if(/travel|place|nature|experience/.test(s))return 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85';return 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85'}
+
 
 async function load(){
  if(!sb){failed=true;loaded=true;render();route();return}
@@ -620,7 +649,7 @@ function render(){
  else if(failed){g.innerHTML='<p style="color:var(--mute)">Could not load posts right now. Please refresh in a moment.</p>'}
  else if(!posts.length){g.innerHTML='<p style="color:var(--mute)">No posts yet.</p>'}
  else g.innerHTML=posts.map(function(x){
-  return '<a class="card" href="/posts/'+encodeURIComponent(x.slug)+'"><div class="bd"><span class="tag">'+esc(x.category)+'</span><h3>'+esc(x.title)+'</h3><span class="go">Read article</span></div></a>';
+  var photo=imageFor(x.category); return '<a class="card" href="/posts/'+encodeURIComponent(x.slug)+'"><div class="im"><img src="'+photo+'" alt="" loading="lazy"></div><div class="bd"><span class="tag">'+esc(x.category)+'</span><h3>'+esc(x.title)+'</h3><span class="go">Read article</span></div></a>';
  }).join('');
 
  // Permanent editorial feature: MBZUAI application journey.
@@ -690,7 +719,7 @@ function route(){
   var d=$('del');if(d)d.onclick=async function(){if(!confirm('Delete this blog?'))return;var r=await sb.from('posts').delete().eq('id',x.id);if(r.error){alert('Could not delete: '+r.error.message);return}await load();location.hash='blog'};
   window.scrollTo(0,0);return;
  }
- setSeo('Vishwajeet Adkine | AI & Research Journal','Independent field notes on artificial intelligence, machine learning, research, and engineering.','https://vishwajeet-blog-psi.vercel.app/','website');
+ setSeo('Vishwajeet Adkine | Personal Journal','Personal writing by Vishwajeet Adkine about learning, building, experiences, and everyday curiosity.','https://vishwajeet-blog-psi.vercel.app/','website');
  v.style.display='none';home.style.display='';blog.style.display='';
  if(h==='blog'){setTimeout(function(){blog.scrollIntoView()},0)}
 }
